@@ -6,7 +6,7 @@ export default function Copyright() {
   return (
     <div>
       {t("Copyright")}{" "}
-      <a target="_blank" rel="noreferrer" href="https://seuronao.github.io/">
+      <a target="_blank" rel="noreferrer" href="https://seuronao.github.io">
         Ronan Soares
       </a>
     </div>
