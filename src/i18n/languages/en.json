@@ -1,4 +1,13 @@
 {
   "title": "Electronic Medical Records",
-  "LanguageSwitcher": "Available in"
+  "LanguageSwitcher": "Available in",
+  "Navigation": {
+    "brand": "EMRec",
+    "links": {
+      "home": "Home",
+      "schedule": "Schedule",
+      "clients": "Clients",
+      "other": "Other"
+    }
+  }
 }

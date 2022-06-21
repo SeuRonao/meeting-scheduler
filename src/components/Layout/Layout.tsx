@@ -1,6 +1,6 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import Navigation from "../Navigation/Navigation";
 
 interface Props {
   children?: React.ReactNode;
@@ -8,11 +8,10 @@ interface Props {
 
 export default function Layout(props: Props) {
   const { children } = props;
-  const { t } = useTranslation();
   return (
     <div className="Layout">
       <header>
-        <h1>{t("title")}</h1>
+        <Navigation />
       </header>
       <main>{children}</main>
       <footer>
