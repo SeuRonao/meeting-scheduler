@@ -1,4 +1,5 @@
 import React from "react";
+import Copyright from "../Copyright/Copyright";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import Navigation from "../Navigation/Navigation";
 
@@ -16,6 +17,8 @@ export default function Layout(props: Props) {
       <main>{children}</main>
       <footer>
         <LanguageSwitcher />
+        <hr />
+        <Copyright />
       </footer>
     </div>
   );
