@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Stack } from "react-bootstrap";
 import Copyright from "../Copyright/Copyright";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import Navigation from "../Navigation/Navigation";
@@ -10,16 +11,16 @@ interface Props {
 export default function Layout(props: Props) {
   const { children } = props;
   return (
-    <div className="Layout">
+    <Stack>
       <header>
         <Navigation />
       </header>
-      <main>{children}</main>
-      <footer>
+      <Container as="main">{children}</Container>
+      <footer className="fixed-bottom">
         <LanguageSwitcher />
         <hr />
         <Copyright />
       </footer>
-    </div>
+    </Stack>
   );
 }
