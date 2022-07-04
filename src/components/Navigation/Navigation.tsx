@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar, Stack } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../contexts/Auth/UserAuthContext";
@@ -37,12 +37,12 @@ function Profile() {
 
   if (user) {
     return (
-      <div>
-        <div>{user.displayName}</div>
+      <Stack direction="horizontal" gap={2}>
+        <span>{user.displayName}</span>
         <Button variant="outline-secondary" size="sm" onClick={handleLogOut}>
           Log Out
         </Button>
-      </div>
+      </Stack>
     );
   } else {
     return (
