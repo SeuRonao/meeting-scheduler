@@ -13,5 +13,21 @@
   "Copyright": "Made with 🧡 by",
   "Profile": {
     "use": "Start Using"
+  },
+  "Home": {
+    "title": "Electronic Medical Records",
+    "welcome": "Welcome"
+  },
+  "Login": {
+    "email": "Email address",
+    "enter-email": "Enter email",
+    "privacy": "We'll never share your email with anyone else.",
+    "password": "Password",
+    "forgot": "Forgot password",
+    "sign-in": "Sign In",
+    "register": "Don't have an account?",
+    "register2": "Register",
+    "or": "or",
+    "google": "Continue with Google"
   }
 }
