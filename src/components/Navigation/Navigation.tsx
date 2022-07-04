@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../contexts/Auth/UserAuthContext";
 
 export default function Navigation() {
@@ -22,9 +23,27 @@ export default function Navigation() {
 
 function Profile() {
   const { t } = useTranslation();
-  const user = useUserAuth().user;
+  const { user, logOut } = useUserAuth();
+  const navigate = useNavigate();
+
+  async function handleLogOut() {
+    try {
+      await logOut();
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   if (user) {
-    return <div>{user.displayName}</div>;
+    return (
+      <div>
+        <div>{user.displayName}</div>
+        <Button variant="outline-secondary" size="sm" onClick={handleLogOut}>
+          Log Out
+        </Button>
+      </div>
+    );
   } else {
     return (
       <Button variant="outline-success" href="/#enter">
