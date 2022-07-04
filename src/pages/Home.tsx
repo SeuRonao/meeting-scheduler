@@ -3,14 +3,14 @@ import { Alert, Button, Form, Image, Stack } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useUserAuth } from "../contexts/Auth/UserAuthContext";
 import GoogleButton from "react-google-button";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Home() {
   const { t } = useTranslation();
   const { user } = useUserAuth();
   return (
     <>
-      <h1 className="text-center">{t("Home.title")}</h1>
+      <h1 className="text-center my-3">{t("Home.title")}</h1>
       {user ? <Welcome /> : <Login />}
     </>
   );
@@ -20,9 +20,9 @@ function Welcome() {
   const { t } = useTranslation();
   const { user } = useUserAuth();
   return (
-    <div>
+    <p>
       {t("Home.welcome")} {user.displayName}
-    </div>
+    </p>
   );
 }
 
@@ -32,14 +32,17 @@ function Login() {
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
   const { logIn, googleSignIn } = useUserAuth();
-  let navigate = useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.pathname || "/";
 
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     setError("");
     try {
       await logIn(email, password);
-      navigate("/");
+      navigate(from, { replace: true });
     } catch (err: any) {
       setError(err.message);
     }
@@ -76,7 +79,7 @@ function Login() {
               />
               <Form.Text>{t("Login.privacy")}</Form.Text>
             </Form.Group>
-            <Form.Group className="mt-3" controlId="formBasicPassword">
+            <Form.Group className="my-3" controlId="formBasicPassword">
               <Form.Label>{t("Login.password")}</Form.Label>
               <Form.Control
                 type="password"
@@ -85,27 +88,27 @@ function Login() {
               />
             </Form.Group>
             <Stack
-              className="mt-3 justify-content-around"
+              className="my-3 justify-content-around"
               direction="horizontal"
             >
               <a href="#!">{t("Login.forgot")}?</a>
             </Stack>
-            <div className="d-grid mt-3">
+            <div className="d-grid">
               <Button variant="primary" type="submit" size="lg">
                 {t("Login.sign-in").toUpperCase()}
               </Button>
             </div>
-            <p className="small fw-bold mt-3">
+            <p className="my-3 small fw-bold">
               {t("Login.register")}{" "}
               <a href="/register" className="link-danger">
                 {t("Login.register2")}
               </a>
             </p>
           </Form>
-          <p className="text-center fw-bold text-muted my-3">
+          <span className="text-center fw-bold text-muted">
             {t("Login.or").toUpperCase()}
-          </p>
-          <div className="align-self-center">
+          </span>
+          <div className="my-3 align-self-center">
             <GoogleButton onClick={handleGoogleSignIn} />
           </div>
         </Stack>
