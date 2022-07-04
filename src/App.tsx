@@ -8,7 +8,7 @@ import NotFound from "./pages/NotFound";
 import Clients from "./pages/Clients";
 import Register from "./pages/Register";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <UserAuthContextProvider>
@@ -27,5 +27,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
