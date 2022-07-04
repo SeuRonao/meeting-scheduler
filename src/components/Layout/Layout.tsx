@@ -1,21 +1,19 @@
 import React from "react";
 import { Container, Stack } from "react-bootstrap";
+import { Outlet } from "react-router-dom";
 import Copyright from "../Copyright/Copyright";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import Navigation from "../Navigation/Navigation";
 
-interface Props {
-  children?: React.ReactNode;
-}
-
-export default function Layout(props: Props) {
-  const { children } = props;
+export default function Layout() {
   return (
     <Stack>
       <header>
         <Navigation />
       </header>
-      <Container as="main">{children}</Container>
+      <Container as="main">
+        <Outlet />
+      </Container>
       <footer className="fixed-bottom">
         <LanguageSwitcher />
         <hr />

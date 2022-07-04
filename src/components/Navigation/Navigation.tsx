@@ -27,7 +27,7 @@ function Profile() {
     return <div>{user.displayName}</div>;
   } else {
     return (
-      <Button variant="outline-success" href="/signIn">
+      <Button variant="outline-success" href="/#enter">
         {t("Profile.use")}
       </Button>
     );
