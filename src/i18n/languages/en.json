@@ -10,5 +10,8 @@
       "other": "Other"
     }
   },
-  "Copyright": "Made with 🧡 by"
+  "Copyright": "Made with 🧡 by",
+  "Profile": {
+    "use": "Start Using"
+  }
 }
