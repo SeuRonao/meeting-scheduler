@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Schedule from "./pages/Schedule";
 import NotFound from "./pages/NotFound";
 import Clients from "./pages/Clients";
-import Register from "./pages/Register";
+import SignUp from "./pages/SignUp";
 
 export default function App() {
   return (
@@ -16,7 +16,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path="register" element={<Register />} />
+              <Route path="sign-up" element={<SignUp />} />
               <Route path="schedule" element={<Schedule />} />
               <Route path="clients" element={<Clients />} />
               <Route path="*" element={<NotFound />} />

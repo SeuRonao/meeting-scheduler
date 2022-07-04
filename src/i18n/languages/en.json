@@ -25,9 +25,16 @@
     "password": "Password",
     "forgot": "Forgot password",
     "sign-in": "Sign In",
-    "register": "Don't have an account?",
-    "register2": "Register",
+    "sign-up": "Don't have an account?",
+    "sign-up2": "Sign up",
     "or": "or",
     "google": "Continue with Google"
+  },
+  "SignUp": {
+    "title": "Sign up",
+    "email": "Email address",
+    "enter-email": "Enter email",
+    "privacy": "We'll never share your email with anyone else.",
+    "password": "Password"
   }
 }

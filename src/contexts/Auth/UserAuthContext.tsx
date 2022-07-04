@@ -4,7 +4,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithRedirect,
-  signOut,
+  signOut as signOutFirebase,
   User,
 } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
@@ -19,7 +19,7 @@ export function UserAuthContextProvider({
 }) {
   const [user, setUser] = useState<User | null>(null);
 
-  function logIn(email: string, password: string) {
+  function signIn(email: string, password: string) {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
@@ -27,8 +27,8 @@ export function UserAuthContextProvider({
     return createUserWithEmailAndPassword(auth, email, password);
   }
 
-  function logOut() {
-    return signOut(auth);
+  function signOut() {
+    return signOutFirebase(auth);
   }
 
   function googleSignIn() {
@@ -47,7 +47,7 @@ export function UserAuthContextProvider({
 
   return (
     <UserAuthContext.Provider
-      value={{ user, logIn, signUp, logOut, googleSignIn }}
+      value={{ user, signIn, signUp, signOut, googleSignIn }}
     >
       {children}
     </UserAuthContext.Provider>

@@ -23,12 +23,12 @@ export default function Navigation() {
 
 function Profile() {
   const { t } = useTranslation();
-  const { user, logOut } = useUserAuth();
+  const { user, signOut } = useUserAuth();
   const navigate = useNavigate();
 
   async function handleLogOut() {
     try {
-      await logOut();
+      await signOut();
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -38,7 +38,7 @@ function Profile() {
   if (user) {
     return (
       <Stack direction="horizontal" gap={2}>
-        <span>{user.displayName}</span>
+        <span>{user.displayName || user.email}</span>
         <Button variant="outline-secondary" size="sm" onClick={handleLogOut}>
           Log Out
         </Button>
@@ -46,7 +46,7 @@ function Profile() {
     );
   } else {
     return (
-      <Button variant="outline-success" href="/#enter">
+      <Button variant="outline-success" href="/#sign-in">
         {t("Profile.use")}
       </Button>
     );

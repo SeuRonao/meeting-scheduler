@@ -21,7 +21,7 @@ function Welcome() {
   const { user } = useUserAuth();
   return (
     <p>
-      {t("Home.welcome")} {user.displayName}
+      {t("Home.welcome")} {user.displayName || user.email}
     </p>
   );
 }
@@ -31,7 +31,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
-  const { logIn, googleSignIn } = useUserAuth();
+  const { signIn, googleSignIn } = useUserAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -41,7 +41,7 @@ function Login() {
     e.preventDefault();
     setError("");
     try {
-      await logIn(email, password);
+      await signIn(email, password);
       navigate(from, { replace: true });
     } catch (err: any) {
       setError(err.message);
@@ -68,7 +68,7 @@ function Login() {
           src="/images/login.svg"
           alt=""
         />
-        <Stack id="enter" className="justify-content-center">
+        <Stack id="sign-in" className="justify-content-center">
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>{t("Login.email")}</Form.Label>
@@ -99,9 +99,9 @@ function Login() {
               </Button>
             </div>
             <p className="my-3 small fw-bold">
-              {t("Login.register")}{" "}
-              <a href="/register" className="link-danger">
-                {t("Login.register2")}
+              {t("Login.sign-up")}{" "}
+              <a href="/sign-up" className="link-danger">
+                {t("Login.sign-up2")}
               </a>
             </p>
           </Form>
