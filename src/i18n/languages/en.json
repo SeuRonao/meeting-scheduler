@@ -12,13 +12,14 @@
   },
   "Copyright": "Made with 🧡 by",
   "Profile": {
-    "use": "Start Using"
+    "sign-in": "Sign in",
+    "sign-out": "Sign out"
   },
   "Home": {
     "title": "Electronic Medical Records",
     "welcome": "Welcome"
   },
-  "Login": {
+  "SignIn": {
     "email": "Email address",
     "enter-email": "Enter email",
     "privacy": "We'll never share your email with anyone else.",
@@ -26,7 +27,7 @@
     "forgot": "Forgot password",
     "sign-in": "Sign In",
     "sign-up": "Don't have an account?",
-    "sign-up2": "Sign up",
+    "sign-up-link": "Sign up",
     "or": "or",
     "google": "Continue with Google"
   },
@@ -36,5 +37,8 @@
     "enter-email": "Enter email",
     "privacy": "We'll never share your email with anyone else.",
     "password": "Password"
+  },
+  "LoadingSpinner": {
+    "loading": "Loading..."
   }
 }

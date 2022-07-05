@@ -1,33 +1,36 @@
 import React, { useState } from "react";
 import { Alert, Button, Form, Image, Stack } from "react-bootstrap";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
-import { useUserAuth } from "../contexts/Auth/UserAuthContext";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import LoadingSpinner from "../components/common/LoadingSpinner";
+import { auth } from "../utils/firebase/firebaseInit";
 
 export default function SignUp() {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
   const [password, setPassword] = useState("");
-  const { signUp } = useUserAuth();
-  const navigate = useNavigate();
+  const [validated, setValidated] = useState(false);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
 
-  async function handleSubmit(e: React.SyntheticEvent) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setError("");
-    try {
-      await signUp(email, password);
-      navigate("/");
-    } catch (err: any) {
-      setError(err.message);
+    const form = e.currentTarget;
+    if (form.checkValidity()) {
+      setValidated(true);
+      createUserWithEmailAndPassword(email, password);
     }
+  }
+
+  if (user) {
+    return <Navigate to="/" />;
   }
 
   return (
     <div>
       <h1 className="text-center my-3">{t("SignUp.title")}</h1>
       <section>
-        {error && <Alert variant="danger">{error}</Alert>}
         <Stack direction="horizontal">
           <Image
             className="col-md-6 mx-auto"
@@ -36,13 +39,17 @@ export default function SignUp() {
             alt=""
           />
           <Stack id="enter" className="justify-content-center">
-            <Form onSubmit={handleSubmit}>
+            {error && <Alert variant="danger">{error.message}</Alert>}
+            <Form validated={validated} onSubmit={handleSubmit}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>{t("SignUp.email")}</Form.Label>
                 <Form.Control
                   type="email"
                   placeholder={t("SignUp.enter-email")}
-                  onChange={(e: any) => setEmail(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setEmail(e.target.value)
+                  }
+                  required
                 />
                 <Form.Text>{t("SignUp.privacy")}</Form.Text>
               </Form.Group>
@@ -51,14 +58,25 @@ export default function SignUp() {
                 <Form.Control
                   type="password"
                   placeholder={t("SignUp.password")}
-                  onChange={(e: any) => setPassword(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setPassword(e.target.value)
+                  }
+                  required
+                  minLength={6}
                 />
+                <Form.Control.Feedback type="invalid">
+                  {t("SignUp.password-not-empty")}
+                </Form.Control.Feedback>
               </Form.Group>
-              <div className="d-grid">
-                <Button variant="primary" type="submit" size="lg">
-                  {t("SignUp.title").toUpperCase()}
-                </Button>
-              </div>
+              <Stack className="align-items-center">
+                {loading ? (
+                  <LoadingSpinner />
+                ) : (
+                  <Button variant="primary" type="submit" size="lg">
+                    {t("SignUp.title").toUpperCase()}
+                  </Button>
+                )}
+              </Stack>
             </Form>
           </Stack>
         </Stack>
