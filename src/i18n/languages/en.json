@@ -20,6 +20,7 @@
     "welcome": "Welcome"
   },
   "SignIn": {
+    "title": "Sign in",
     "email": "Email address",
     "enter-email": "Enter email",
     "privacy": "We'll never share your email with anyone else.",

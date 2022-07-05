@@ -14,12 +14,12 @@ export default function SignUp() {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     if (form.checkValidity()) {
       setValidated(true);
-      createUserWithEmailAndPassword(email, password);
+      await createUserWithEmailAndPassword(email, password);
     }
   }
 

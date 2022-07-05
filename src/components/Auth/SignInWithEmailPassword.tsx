@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { Form, Stack, Button, Alert } from "react-bootstrap";
+import { Alert, Button, Form, Stack } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
 import { auth } from "../../utils/firebase/firebaseInit";
@@ -11,9 +11,9 @@ export default function SignInWithEmailPassword() {
     useSignInWithEmailAndPassword(auth);
   const { t } = useTranslation();
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
   }
 
   return (
@@ -24,7 +24,7 @@ export default function SignInWithEmailPassword() {
         </Alert>
       )}
       <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group className="my-3" controlId="formBasicEmail">
           <Form.Label>{t("SignIn.email")}</Form.Label>
           <Form.Control
             type="email"
@@ -41,14 +41,11 @@ export default function SignInWithEmailPassword() {
             onChange={(e: any) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Stack className="my-3 justify-content-around" direction="horizontal">
-          <a href="#!">{t("SignIn.forgot")}?</a>
-        </Stack>
-        <div className="d-grid">
+        <Stack className="my-3">
           <Button variant="primary" type="submit" size="lg">
             {t("SignIn.sign-in").toUpperCase()}
           </Button>
-        </div>
+        </Stack>
         <p className="my-3 small fw-bold">
           {t("SignIn.sign-up")}{" "}
           <a href="/sign-up" className="link-danger">

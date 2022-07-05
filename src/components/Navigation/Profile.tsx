@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import { Stack, Button, Alert } from "react-bootstrap";
+import { Alert, Button, Stack } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -12,12 +12,8 @@ export default function Profile() {
   const navigate = useNavigate();
 
   async function handleLogOut() {
-    try {
-      await signOut(auth);
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
+    await signOut(auth);
+    navigate("/");
   }
 
   if (error) {

@@ -17,7 +17,7 @@ export default function SignInWithGoogle() {
   return (
     <Stack className="my-3 align-self-center align-items-center">
       {error && <Alert variant="danger">{error.message}</Alert>}
-      <GoogleButton onClick={() => signInWithGoogle()} />
+      <GoogleButton onClick={async () => await signInWithGoogle()} />
     </Stack>
   );
 }
