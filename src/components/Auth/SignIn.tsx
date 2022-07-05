@@ -1,4 +1,3 @@
-import React from "react";
 import { Stack } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import SignInWithEmailPassword from "./SignInWithEmailPassword";

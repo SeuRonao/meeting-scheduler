@@ -1,4 +1,3 @@
-import React from "react";
 import { Stack, Image } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Navigate } from "react-router-dom";

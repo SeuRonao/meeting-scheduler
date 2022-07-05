@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Stack } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import Copyright from "../Copyright/Copyright";

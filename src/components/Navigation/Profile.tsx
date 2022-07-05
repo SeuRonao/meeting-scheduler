@@ -1,4 +1,3 @@
-import React from "react";
 import { signOut } from "firebase/auth";
 import { Stack, Button, Alert } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";

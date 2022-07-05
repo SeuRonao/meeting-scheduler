@@ -1,4 +1,3 @@
-import React from "react";
 import { Spinner } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 

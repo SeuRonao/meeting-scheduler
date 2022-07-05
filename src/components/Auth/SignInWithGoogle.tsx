@@ -1,4 +1,3 @@
-import React from "react";
 import { Alert, Stack } from "react-bootstrap";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import GoogleButton from "react-google-button";
