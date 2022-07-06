@@ -28,7 +28,7 @@ export default function SignUp() {
   }
 
   return (
-    <div>
+    <>
       <h1 className="text-center my-3">{t("SignUp.title")}</h1>
       <section>
         <Stack direction="horizontal">
@@ -81,6 +81,6 @@ export default function SignUp() {
           </Stack>
         </Stack>
       </section>
-    </div>
+    </>
   );
 }
