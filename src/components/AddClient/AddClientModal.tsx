@@ -1,5 +1,8 @@
 import { SyntheticEvent, useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Alert, Button, Form, Modal, Spinner } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { createClient } from "../../utils/firebase/clientFirebase";
+import { auth } from "../../utils/firebase/firebaseInit";
 
 interface Props {
   show: boolean;
@@ -8,17 +11,57 @@ interface Props {
 
 export default function AddClientModal(props: Props) {
   const { show, setShow } = props;
+  const [user] = useAuthState(auth);
   const [validated, setValidated] = useState<boolean | undefined>(undefined); // If undefined, the form shows no validation.
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
 
-  function handleSubmit(event: SyntheticEvent<EventTarget>) {
-    const target = event.target as HTMLFormElement;
-    if (target.checkValidity()) {
-      setValidated(true);
-    } else {
-      setValidated(false);
-    }
+  function getFormValues(form: HTMLFormElement) {
+    const firstName = form.firstName.value as string;
+    const lastName = form.lastName.value as string;
+    const cpf = form.cpf.value as string;
+    const email = form.email.value as string;
+    const phone = form.phone.value as string;
+
+    return { firstName, lastName, cpf, email, phone };
+  }
+
+  async function handleSubmit(event: SyntheticEvent<EventTarget>) {
     event.preventDefault();
     event.stopPropagation();
+    const target = event.target as HTMLFormElement;
+    if (!target.checkValidity()) {
+      setValidated(false);
+    } else {
+      setValidated(true);
+      const formValues = getFormValues(target);
+      try {
+        if (user) {
+          setSaving(true);
+          await createClient(
+            formValues.firstName,
+            formValues.lastName,
+            formValues.cpf,
+            user.uid,
+            formValues.email,
+            formValues.phone
+          );
+          setShow(false);
+          setValidated(undefined);
+          setError(null);
+        } else {
+          throw new Error("User not Authenticated.");
+        }
+      } catch (error) {
+        if (typeof error === "string") {
+          setError(error);
+        } else {
+          setError((error as Error).message);
+        }
+      } finally {
+        setSaving(false);
+      }
+    }
   }
 
   return (
@@ -28,6 +71,7 @@ export default function AddClientModal(props: Props) {
       </Modal.Header>
       <Form validated={validated} onSubmit={handleSubmit}>
         <Modal.Body>
+          {error && <Alert variant="danger">{error}</Alert>}
           <Form.Group className="my-3" controlId="firstName">
             <Form.Label>First Name</Form.Label>
             <Form.Control required />
@@ -75,9 +119,22 @@ export default function AddClientModal(props: Props) {
           >
             Close
           </Button>
-          <Button type="submit" variant="primary">
-            Save
-          </Button>
+          {saving ? (
+            <Button disabled>
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+              <span className="visually-hidden">Loading...</span>
+            </Button>
+          ) : (
+            <Button type="submit" variant="primary">
+              Save
+            </Button>
+          )}
         </Modal.Footer>
       </Form>
     </Modal>
