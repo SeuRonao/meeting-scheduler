@@ -1,24 +1,14 @@
+import { Timestamp } from "firebase/firestore";
+
 interface Client {
   // Client information
   name: { first: string; last: string };
   cpf: string;
-  rg: string;
-  birthDate: Date;
-  sex: "Male" | "Female" | "Other";
-  address: {
-    cep: string;
-    street: string;
-    number: string;
-    complement?: string;
-    district: string;
-    city: string;
-    state: string;
-  };
-  profession?: string;
+  email?: string;
+  phone?: string;
   // App information
-  creationTimestamp: Date;
+  creationTimestamp: Timestamp;
   ownerID: string;
-  readPermissions: string[]; // Other userIDs that have read permission on the file
 }
 
 export type { Client };
