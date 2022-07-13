@@ -1,8 +1,8 @@
 import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import { store } from "./firebaseInit";
 
-async function getClientSnapshot(cpf: string) {
-  const clientRef = doc(store, "clients", cpf);
+async function getClientSnapshot(ownerId: string, cpf: string) {
+  const clientRef = doc(store, "users", ownerId, "medical-record", cpf);
   const clientSnap = await getDoc(clientRef);
   return clientSnap;
 }
@@ -15,16 +15,15 @@ async function createClient(
   phone?: string,
   email?: string
 ) {
-  const clientSnap = await getClientSnapshot(cpf);
+  const clientSnap = await getClientSnapshot(ownerId, cpf);
   if (clientSnap.exists()) {
     throw new Error("Existing Client with CPF: " + cpf);
   }
-  const clientRef = doc(store, "clients", cpf);
+  const clientRef = doc(store, "users", ownerId, "medical-record", cpf);
   await setDoc(clientRef, {
     cpf,
     firstName,
     lastName,
-    ownerId,
     email,
     phone,
     creationDate: Timestamp.now(),
