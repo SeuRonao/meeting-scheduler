@@ -6,6 +6,7 @@ interface Client {
   cpf: string;
   email?: string;
   phone?: string;
+  nextAppointment?: Date;
   // App information
   creationTimestamp: Timestamp;
   ownerID: string;

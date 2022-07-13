@@ -2,8 +2,11 @@ import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import { store } from "./firebaseInit";
 import type { Client } from "../types";
 
+const USERS_COLLECTION = "users";
+const MEDICAL_RECORDS = "medical-records";
+
 async function getClientSnapshot(ownerID: string, cpf: string) {
-  const clientRef = doc(store, "users", ownerID, "medical-record", cpf);
+  const clientRef = doc(store, USERS_COLLECTION, ownerID, MEDICAL_RECORDS, cpf);
   const clientSnap = await getDoc(clientRef);
   return clientSnap;
 }
@@ -28,8 +31,17 @@ async function createClient(
     ownerID,
     creationTimestamp: Timestamp.now(),
   };
-  const clientRef = doc(store, "users", ownerID, "medical-record", cpf);
+  const clientRef = doc(store, USERS_COLLECTION, ownerID, MEDICAL_RECORDS, cpf);
   await setDoc(clientRef, client);
 }
 
-export { getClientSnapshot, createClient };
+async function updateClient(
+  ownerId: string,
+  cpf: string,
+  client: Partial<Client>
+) {
+  const clientRef = doc(store, USERS_COLLECTION, ownerId, MEDICAL_RECORDS, cpf);
+  await setDoc(clientRef, client, { merge: true });
+}
+
+export { getClientSnapshot, createClient, updateClient };
