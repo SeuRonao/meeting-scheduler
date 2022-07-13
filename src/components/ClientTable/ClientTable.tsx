@@ -10,6 +10,7 @@ import LoadingSpinner from "../common/LoadingSpinner";
 import { SyntheticEvent, useEffect, useState } from "react";
 import {
   getClientSnapshot,
+  removeClient,
   updateClient,
 } from "../../utils/firebase/clientFirebase";
 
@@ -168,6 +169,27 @@ function UpdateClientModal(props: UpdateClientModalProps) {
     }
   }
 
+  async function handleDelete() {
+    try {
+      if (user) {
+        await removeClient(user.uid, clientCPF);
+        setValidated(undefined);
+        setError(null);
+        setClient(null);
+        setShow(false);
+        setValidated(undefined); // Reset the validation style.
+      } else {
+        throw new Error("User not authenticated");
+      }
+    } catch (error) {
+      if (typeof error === "string") {
+        setError(error);
+      } else {
+        setError((error as Error).message);
+      }
+    }
+  }
+
   return (
     <Modal show={show}>
       <Modal.Header>
@@ -219,6 +241,9 @@ function UpdateClientModal(props: UpdateClientModalProps) {
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
+          <Button type="button" variant="danger" onClick={handleDelete}>
+            Delete
+          </Button>
           <Button
             type="reset"
             variant="secondary"

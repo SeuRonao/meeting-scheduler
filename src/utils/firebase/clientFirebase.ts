@@ -1,4 +1,4 @@
-import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
+import { deleteDoc, doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import { store } from "./firebaseInit";
 import type { Client } from "../types";
 
@@ -44,4 +44,9 @@ async function updateClient(
   await setDoc(clientRef, client, { merge: true });
 }
 
-export { getClientSnapshot, createClient, updateClient };
+async function removeClient(ownerID: string, cpf: string) {
+  const clientRef = doc(store, USERS_COLLECTION, ownerID, MEDICAL_RECORDS, cpf);
+  await deleteDoc(clientRef);
+}
+
+export { getClientSnapshot, createClient, updateClient, removeClient };
