@@ -1,33 +1,59 @@
-import { SyntheticEvent, useState } from "react";
-import { Alert, Button, Form, Modal, Spinner } from "react-bootstrap";
+import { useState, useEffect, SyntheticEvent } from "react";
+import { Modal, Form, Alert, Button, Spinner } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
-import { createClient } from "../../utils/firebase/clientFirebase";
+import {
+  getClientSnapshot,
+  updateClient,
+  removeClient,
+} from "../../utils/firebase/clientFirebase";
 import { auth } from "../../utils/firebase/firebaseInit";
+import { Client } from "../../utils/types";
 
-interface Props {
+interface UpdateClientModalProps {
   show: boolean;
   setShow: (value: boolean) => void;
+  clientCPF: string;
 }
 
-export default function AddClientModal(props: Props) {
-  const { show, setShow } = props;
+export default function UpdateClientModal(props: UpdateClientModalProps) {
   const { t } = useTranslation("translation", {
-    keyPrefix: "components.AddClientModal",
+    keyPrefix: "components.UpdateClientDataModal",
   });
+  const { show, setShow, clientCPF } = props;
+  const [client, setClient] = useState<Client | null>(null);
   const [user] = useAuthState(auth);
   const [validated, setValidated] = useState<boolean | undefined>(undefined); // If undefined, the form shows no validation.
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
+  useEffect(() => {
+    async function fetchData() {
+      // No need to fetch data if modal is not showing
+      if (!show) return;
+
+      if (!user) throw new Error(t("no-user-provided"));
+      if (!clientCPF) throw new Error(t("no-cpf-provided"));
+
+      const clientData = (
+        await getClientSnapshot(user.uid, clientCPF)
+      ).data() as Client;
+      if (clientData) setClient(clientData);
+    }
+
+    fetchData();
+  });
+
   function getFormValues(form: HTMLFormElement) {
-    const firstName = form.firstName.value as string;
-    const lastName = form.lastName.value as string;
+    const name = {
+      first: form.firstName.value as string,
+      last: form.lastName.value as string,
+    };
     const cpf = form.cpf.value as string;
     const email = form.email.value as string;
     const phone = form.phone.value as string;
 
-    return { firstName, lastName, cpf, email, phone };
+    return { name, cpf, email, phone };
   }
 
   async function handleSubmit(event: SyntheticEvent<EventTarget>) {
@@ -42,19 +68,13 @@ export default function AddClientModal(props: Props) {
       try {
         if (user) {
           setSaving(true);
-          await createClient(
-            formValues.firstName,
-            formValues.lastName,
-            formValues.cpf,
-            user.uid,
-            formValues.email,
-            formValues.phone
-          );
+          await updateClient(user.uid, formValues.cpf, formValues);
           setShow(false);
           setValidated(undefined);
           setError(null);
+          setClient(null);
         } else {
-          throw new Error("User not Authenticated.");
+          throw new Error(t("user-not-authenticated"));
         }
       } catch (error) {
         if (typeof error === "string") {
@@ -68,51 +88,81 @@ export default function AddClientModal(props: Props) {
     }
   }
 
+  async function handleDelete() {
+    try {
+      if (user) {
+        await removeClient(user.uid, clientCPF);
+        setValidated(undefined);
+        setError(null);
+        setClient(null);
+        setShow(false);
+        setValidated(undefined); // Reset the validation style.
+      } else {
+        throw new Error(t("user-not-authenticated"));
+      }
+    } catch (error) {
+      if (typeof error === "string") {
+        setError(error);
+      } else {
+        setError((error as Error).message);
+      }
+    }
+  }
+
   return (
     <Modal show={show}>
       <Modal.Header>
-        <Modal.Title>{t("title")}</Modal.Title>
+        <Modal.Title>{t("client-info")}</Modal.Title>
       </Modal.Header>
       <Form validated={validated} onSubmit={handleSubmit}>
         <Modal.Body>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form.Group className="my-3" controlId="firstName">
             <Form.Label>{t("first-name")}</Form.Label>
-            <Form.Control required />
+            <Form.Control required defaultValue={client?.name.first} />
             <Form.Control.Feedback type="invalid">
               {t("first-name-required")}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="my-3" controlId="lastName">
             <Form.Label>{t("last-name")}</Form.Label>
-            <Form.Control required />
+            <Form.Control required defaultValue={client?.name.last} />
             <Form.Control.Feedback type="invalid">
               {t("last-name-required")}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="my-3" controlId="cpf">
             <Form.Label>{t("cpf-only-numbers")}</Form.Label>
-            <Form.Control required minLength={11} maxLength={11} />
+            <Form.Control
+              required
+              minLength={11}
+              maxLength={11}
+              defaultValue={client?.cpf}
+              disabled
+            />
             <Form.Control.Feedback type="invalid">
               {t("cpf-invalid")}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="my-3" controlId="email">
             <Form.Label>{t("email")}</Form.Label>
-            <Form.Control type="email" />
+            <Form.Control type="email" defaultValue={client?.email} />
             <Form.Control.Feedback type="invalid">
               {t("email-invalid")}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="my-3" controlId="phone">
             <Form.Label>{t("phone")}</Form.Label>
-            <Form.Control type="tel" />
+            <Form.Control type="tel" defaultValue={client?.phone} />
             <Form.Control.Feedback type="invalid">
               {t("phone-invalid")}
             </Form.Control.Feedback>
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
+          <Button type="button" variant="danger" onClick={handleDelete}>
+            {t("delete-button")}
+          </Button>
           <Button
             type="reset"
             variant="secondary"

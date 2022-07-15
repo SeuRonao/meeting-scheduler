@@ -7,7 +7,9 @@ import { auth } from "../../utils/firebase/firebaseInit";
 import LoadingSpinner from "../common/LoadingSpinner";
 
 export default function Profile() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("translation", {
+    keyPrefix: "components.Profile",
+  });
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -25,7 +27,7 @@ export default function Profile() {
       <Stack direction="horizontal" gap={2}>
         <span>{user.displayName || user.email}</span>
         <Button variant="outline-secondary" size="sm" onClick={handleLogOut}>
-          {t("Profile.sign-out")}
+          {t("sign-out")}
         </Button>
       </Stack>
     );
@@ -37,7 +39,7 @@ export default function Profile() {
 
   return (
     <Button variant="outline-success" href="/sign-in">
-      {t("Profile.sign-in")}
+      {t("sign-in")}
     </Button>
   );
 }

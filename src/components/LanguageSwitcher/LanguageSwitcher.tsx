@@ -4,10 +4,12 @@ import i18n from "../../i18n/i18n";
 import languages from "../../i18n/languages/languages.json";
 
 export default function LanguageSwitcher() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("translation", {
+    keyPrefix: "components.LanguageSwitcher",
+  });
   return (
     <Stack className="justify-content-center" direction="horizontal" gap={2}>
-      <div>{t("LanguageSwitcher")}:</div>
+      <div>{t("available-in")}:</div>
       <div>
         {languages
           .filter((value) => {

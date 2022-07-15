@@ -1,14 +1,111 @@
 {
-  "title": "Prontuário Eletrônico",
-  "LanguageSwitcher": "Também disponível em",
-  "Navigation": {
-    "brand": "EMRec",
-    "links": {
-      "home": "Início",
-      "schedule": "Agenda",
-      "clients": "Clientes",
-      "other": "Outros"
+  "pages": {
+    "Clients": {
+      "title": "Clientes"
+    },
+    "Home": {
+      "title": "Prontuário Eletrônico",
+      "welcome": "Bem vindo!"
+    },
+    "NotFound": {
+      "title": "Página não Encontrada!"
+    },
+    "Schedule": {
+      "title": "Agenda"
+    },
+    "SignIn": {
+      "title": "Entrar"
+    },
+    "SignUp": {
+      "title": "Cadastrar",
+      "email": "Endereço de Email",
+      "enter-email": "Digite o Email",
+      "privacy": "Nunca vamos compartilhar seu email.",
+      "password": "Senha",
+      "password-not-empty": "A senha não pode ficar vazia."
     }
   },
-  "Copyright": "Feito com 🧡 por"
+  "components": {
+    "AddClient": {
+      "new-client-button": "+ Adicionar Cliente"
+    },
+    "AddClientModal": {
+      "title": "Informação do Cliente",
+      "first-name": "Primeiro Nome",
+      "first-name-required": "O primeiro nome é necessário.",
+      "last-name": "Sobrenome",
+      "last-name-required": "O sobrenome é necessário.",
+      "cpf-only-numbers": "CPF (somente números)",
+      "cpf-invalid": "CPF inválido.",
+      "email": "Email",
+      "email-invalid": "Email inválido.",
+      "phone": "Telefone",
+      "phone-invalid": "Telefone inválido.",
+      "close-button": "Fechar",
+      "loading": "Carregando...",
+      "save-button": "Salvar"
+    },
+    "SignIn": {
+      "or": "ou"
+    },
+    "SignInWithEmailPassword": {
+      "email": "Endereço de Email",
+      "enter-email": "Digite o Email",
+      "privacy": "Nunca vamos compartilhar seu email.",
+      "password": "Senha",
+      "forgot": "Esqueceu a senha?",
+      "sign-in": "Entrar",
+      "sign-up": "Não tem uma conta?",
+      "sign-up-link": "Cadastrar",
+      "or": "ou",
+      "google": "Entrar com o Google"
+    },
+    "ClientTable": {
+      "edit": "Editar",
+      "first-name": "Primeiro Nome",
+      "last-name": "Sobrenome",
+      "cpf": "CPF",
+      "email": "Email",
+      "phone": "Telefone",
+      "appointment": "Agendamento"
+    },
+    "UpdateClientDataModal": {
+      "no-user-provided": "Usuário não fornecido",
+      "no-cpf-provided": "CPF do cliente não fornecido",
+      "no-user-authenticated": "Usuário não logado.",
+      "client-info": "Informação do Cliente",
+      "first-name": "Primeiro Nome",
+      "first-name-required": "O primeiro nome é necessário.",
+      "last-name": "Sobrenome",
+      "last-name-required": "O sobrenome é necessário.",
+      "cpf-only-numbers": "CPF (somente números)",
+      "cpf-invalid": "CPF inválido.",
+      "email": "Email",
+      "email-invalid": "Email inválido.",
+      "phone": "Telefone",
+      "phone-invalid": "Telefone inválido.",
+      "delete-button": "Deletar",
+      "close-button": "Fechar",
+      "loading": "Carregando...",
+      "save-button": "Salvar"
+    },
+    "LoadingSpinner": {
+      "loading": "Carregando..."
+    },
+    "Copyright": { "made-with-love": "Feito com 🧡 por" },
+    "LanguageSwitcher": { "available-in": "Também disponível em" },
+    "Navigation": {
+      "brand": "EMRec",
+      "links": {
+        "home": "Início",
+        "schedule": "Agenda",
+        "clients": "Clientes",
+        "other": "Outros"
+      }
+    },
+    "Profile": {
+      "sign-in": "Entrar",
+      "sign-out": "Sair"
+    }
+  }
 }
