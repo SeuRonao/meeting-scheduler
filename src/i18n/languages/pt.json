@@ -1,4 +1,14 @@
 {
   "title": "Prontuário Eletrônico",
-  "LanguageSwitcher": "Também disponível em"
+  "LanguageSwitcher": "Também disponível em",
+  "Navigation": {
+    "brand": "EMRec",
+    "links": {
+      "home": "Início",
+      "schedule": "Agenda",
+      "clients": "Clientes",
+      "other": "Outros"
+    }
+  },
+  "Copyright": "Feito com 🧡 por"
 }

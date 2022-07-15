@@ -1,23 +1,23 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import { Container, Stack } from "react-bootstrap";
+import { Outlet } from "react-router-dom";
+import Copyright from "../Copyright/Copyright";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import Navigation from "../Navigation/Navigation";
 
-interface Props {
-  children?: React.ReactNode;
-}
-
-export default function Layout(props: Props) {
-  const { children } = props;
-  const { t } = useTranslation();
+export default function Layout() {
   return (
-    <div className="Layout">
+    <Stack>
       <header>
-        <h1>{t("title")}</h1>
+        <Navigation />
       </header>
-      <main>{children}</main>
-      <footer>
+      <Container as="main">
+        <Outlet />
+      </Container>
+      <footer className="fixed-bottom">
         <LanguageSwitcher />
+        <hr />
+        <Copyright />
       </footer>
-    </div>
+    </Stack>
   );
 }

@@ -1,4 +1,45 @@
 {
   "title": "Electronic Medical Records",
-  "LanguageSwitcher": "Available in"
+  "LanguageSwitcher": "Available in",
+  "Navigation": {
+    "brand": "EMRec",
+    "links": {
+      "home": "Home",
+      "schedule": "Schedule",
+      "clients": "Clients",
+      "other": "Other"
+    }
+  },
+  "Copyright": "Made with 🧡 by",
+  "Profile": {
+    "sign-in": "Sign in",
+    "sign-out": "Sign out"
+  },
+  "Home": {
+    "title": "Electronic Medical Records",
+    "welcome": "Welcome"
+  },
+  "SignIn": {
+    "title": "Sign in",
+    "email": "Email address",
+    "enter-email": "Enter email",
+    "privacy": "We'll never share your email with anyone else.",
+    "password": "Password",
+    "forgot": "Forgot password",
+    "sign-in": "Sign In",
+    "sign-up": "Don't have an account?",
+    "sign-up-link": "Sign up",
+    "or": "or",
+    "google": "Continue with Google"
+  },
+  "SignUp": {
+    "title": "Sign up",
+    "email": "Email address",
+    "enter-email": "Enter email",
+    "privacy": "We'll never share your email with anyone else.",
+    "password": "Password"
+  },
+  "LoadingSpinner": {
+    "loading": "Loading..."
+  }
 }

@@ -1,33 +1,32 @@
-import React from "react";
+import { Stack } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import i18n from "../../i18n";
+import i18n from "../../i18n/i18n";
 import languages from "../../i18n/languages/languages.json";
 
 export default function LanguageSwitcher() {
   const { t } = useTranslation();
   return (
-    <div>
-      <p>{t("LanguageSwitcher")}:</p>
-      <ul>
+    <Stack className="justify-content-center" direction="horizontal" gap={2}>
+      <div>{t("LanguageSwitcher")}:</div>
+      <div>
         {languages
           .filter((value) => {
             return i18n.language !== value.code;
           })
           .map((value, index) => {
             return (
-              <li key={index}>
-                <a
-                  href="/"
-                  onClick={() => {
-                    i18n.changeLanguage(value.code);
-                  }}
-                >
-                  {value.name}
-                </a>
-              </li>
+              <a
+                href="/"
+                onClick={() => {
+                  i18n.changeLanguage(value.code);
+                }}
+                key={index}
+              >
+                {value.name}
+              </a>
             );
           })}
-      </ul>
-    </div>
+      </div>
+    </Stack>
   );
 }

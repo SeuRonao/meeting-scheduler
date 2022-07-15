@@ -2,9 +2,12 @@
   "cSpell.words": [
     "browserslist",
     "eletronico",
+    "esnext",
     "firefox",
     "firestore",
     "Firestore",
+    "languagedetector",
     "webfonts"
-  ]
+  ],
+  "css.lint.unknownAtRules": "ignore"
 }
