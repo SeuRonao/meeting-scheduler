@@ -6,14 +6,14 @@ import SignInForm from "../components/Auth/SignIn";
 import { auth } from "../utils/firebase/firebaseInit";
 
 export default function SignIn() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("translation", { keyPrefix: "pages.SignIn" });
   const [user] = useAuthState(auth);
   if (user) {
     return <Navigate to="/" />;
   }
   return (
     <>
-      <h1 className="my-3 text-center">{t("SignIn.title")}</h1>
+      <h1 className="my-3 text-center">{t("title")}</h1>
       <Stack direction="horizontal">
         <Image
           className="col-md-6 mx-auto"

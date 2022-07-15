@@ -7,7 +7,7 @@ import LoadingSpinner from "../components/common/LoadingSpinner";
 import { auth } from "../utils/firebase/firebaseInit";
 
 export default function SignUp() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("translation", { keyPrefix: "pages.SignUp" });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [validated, setValidated] = useState(false);
@@ -29,7 +29,7 @@ export default function SignUp() {
 
   return (
     <>
-      <h1 className="text-center my-3">{t("SignUp.title")}</h1>
+      <h1 className="text-center my-3">{t("title")}</h1>
       <section>
         <Stack direction="horizontal">
           <Image
@@ -42,22 +42,22 @@ export default function SignUp() {
             {error && <Alert variant="danger">{error.message}</Alert>}
             <Form validated={validated} onSubmit={handleSubmit}>
               <Form.Group controlId="formBasicEmail">
-                <Form.Label>{t("SignUp.email")}</Form.Label>
+                <Form.Label>{t("email")}</Form.Label>
                 <Form.Control
                   type="email"
-                  placeholder={t("SignUp.enter-email")}
+                  placeholder={t("enter-email")}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setEmail(e.target.value)
                   }
                   required
                 />
-                <Form.Text>{t("SignUp.privacy")}</Form.Text>
+                <Form.Text>{t("privacy")}</Form.Text>
               </Form.Group>
               <Form.Group className="my-3" controlId="formBasicPassword">
-                <Form.Label>{t("SignUp.password")}</Form.Label>
+                <Form.Label>{t("password")}</Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder={t("SignUp.password")}
+                  placeholder={t("password")}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setPassword(e.target.value)
                   }
@@ -65,7 +65,7 @@ export default function SignUp() {
                   minLength={6}
                 />
                 <Form.Control.Feedback type="invalid">
-                  {t("SignUp.password-not-empty")}
+                  {t("password-not-empty")}
                 </Form.Control.Feedback>
               </Form.Group>
               <Stack className="align-items-center">
@@ -73,7 +73,7 @@ export default function SignUp() {
                   <LoadingSpinner />
                 ) : (
                   <Button variant="primary" type="submit" size="lg">
-                    {t("SignUp.title").toUpperCase()}
+                    {t("title").toUpperCase()}
                   </Button>
                 )}
               </Stack>

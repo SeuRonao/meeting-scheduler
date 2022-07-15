@@ -1,45 +1,111 @@
 {
-  "title": "Electronic Medical Records",
-  "LanguageSwitcher": "Available in",
-  "Navigation": {
-    "brand": "EMRec",
-    "links": {
-      "home": "Home",
-      "schedule": "Schedule",
-      "clients": "Clients",
-      "other": "Other"
+  "pages": {
+    "Clients": {
+      "title": "Clients"
+    },
+    "Home": {
+      "title": "Electronic Medical Records",
+      "welcome": "Welcome"
+    },
+    "NotFound": {
+      "title": "Page not found!"
+    },
+    "Schedule": {
+      "title": "Schedule"
+    },
+    "SignIn": {
+      "title": "Sign in"
+    },
+    "SignUp": {
+      "title": "Sign up",
+      "email": "Email address",
+      "enter-email": "Enter email",
+      "privacy": "We'll never share your email with anyone else.",
+      "password": "Password",
+      "password-not-empty": "Password cannot be empty"
     }
   },
-  "Copyright": "Made with 🧡 by",
-  "Profile": {
-    "sign-in": "Sign in",
-    "sign-out": "Sign out"
-  },
-  "Home": {
-    "title": "Electronic Medical Records",
-    "welcome": "Welcome"
-  },
-  "SignIn": {
-    "title": "Sign in",
-    "email": "Email address",
-    "enter-email": "Enter email",
-    "privacy": "We'll never share your email with anyone else.",
-    "password": "Password",
-    "forgot": "Forgot password",
-    "sign-in": "Sign In",
-    "sign-up": "Don't have an account?",
-    "sign-up-link": "Sign up",
-    "or": "or",
-    "google": "Continue with Google"
-  },
-  "SignUp": {
-    "title": "Sign up",
-    "email": "Email address",
-    "enter-email": "Enter email",
-    "privacy": "We'll never share your email with anyone else.",
-    "password": "Password"
-  },
-  "LoadingSpinner": {
-    "loading": "Loading..."
+  "components": {
+    "AddClient": {
+      "new-client-button": "+ Add new client"
+    },
+    "AddClientModal": {
+      "title": "Client Information",
+      "first-name": "First name",
+      "first-name-required": "First name is required.",
+      "last-name": "Last name",
+      "last-name-required": "Last name is required.",
+      "cpf-only-numbers": "CPF (only numbers)",
+      "cpf-invalid": "Invalid CPF.",
+      "email": "Email",
+      "email-invalid": "Invalid email.",
+      "phone": "Phone",
+      "phone-invalid": "Invalid phone.",
+      "close-button": "Close",
+      "loading": "Loading...",
+      "save-button": "Save"
+    },
+    "SignIn": {
+      "or": "or"
+    },
+    "SignInWithEmailPassword": {
+      "email": "Email address",
+      "enter-email": "Enter email",
+      "privacy": "We'll never share your email with anyone else.",
+      "password": "Password",
+      "forgot": "Forgot password",
+      "sign-in": "Sign In",
+      "sign-up": "Don't have an account?",
+      "sign-up-link": "Sign up",
+      "or": "or",
+      "google": "Continue with Google"
+    },
+    "ClientTable": {
+      "edit": "Edit",
+      "first-name": "First name",
+      "last-name": "Last name",
+      "cpf": "CPF",
+      "email": "Email",
+      "phone": "Phone",
+      "appointment": "Appointment"
+    },
+    "UpdateClientDataModal": {
+      "no-user-provided": "No user provided",
+      "no-cpf-provided": "No Client CPF provided",
+      "no-user-authenticated": "User not Authenticated.",
+      "client-info": "Client Information",
+      "first-name": "First name",
+      "first-name-required": "First name is required.",
+      "last-name": "Last name",
+      "last-name-required": "Last name is required.",
+      "cpf-only-numbers": "CPF (only numbers)",
+      "cpf-invalid": "Invalid CPF.",
+      "email": "Email",
+      "email-invalid": "Invalid email.",
+      "phone": "Phone",
+      "phone-invalid": "Invalid phone.",
+      "delete-button": "Delete",
+      "close-button": "Close",
+      "loading": "Loading...",
+      "save-button": "Save"
+    },
+    "LoadingSpinner": {
+      "loading": "Loading..."
+    },
+    "Copyright": { "made-with-love": "Made with 🧡 by" },
+    "LanguageSwitcher": { "available-in": "Available in" },
+    "Navigation": {
+      "brand": "EMRec",
+      "links": {
+        "home": "Home",
+        "schedule": "Schedule",
+        "clients": "Clients",
+        "other": "Other"
+      }
+    },
+    "Profile": {
+      "sign-in": "Sign in",
+      "sign-out": "Sign out"
+    }
   }
 }

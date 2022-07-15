@@ -9,7 +9,9 @@ export default function SignInWithEmailPassword() {
   const [password, setPassword] = useState("");
   const [signInWithEmailAndPassword, , , error] =
     useSignInWithEmailAndPassword(auth);
-  const { t } = useTranslation();
+  const { t } = useTranslation("translation", {
+    keyPrefix: "components.SignInWithEmailPassword",
+  });
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -25,31 +27,31 @@ export default function SignInWithEmailPassword() {
       )}
       <Form onSubmit={handleSubmit}>
         <Form.Group className="my-3" controlId="formBasicEmail">
-          <Form.Label>{t("SignIn.email")}</Form.Label>
+          <Form.Label>{t("email")}</Form.Label>
           <Form.Control
             type="email"
-            placeholder={t("SignIn.enter-email")}
+            placeholder={t("enter-email")}
             onChange={(e: any) => setEmail(e.target.value)}
           />
-          <Form.Text>{t("SignIn.privacy")}</Form.Text>
+          <Form.Text>{t("privacy")}</Form.Text>
         </Form.Group>
         <Form.Group className="my-3" controlId="formBasicPassword">
-          <Form.Label>{t("SignIn.password")}</Form.Label>
+          <Form.Label>{t("password")}</Form.Label>
           <Form.Control
             type="password"
-            placeholder={t("SignIn.password")}
+            placeholder={t("password")}
             onChange={(e: any) => setPassword(e.target.value)}
           />
         </Form.Group>
         <Stack className="my-3">
           <Button variant="primary" type="submit" size="lg">
-            {t("SignIn.sign-in").toUpperCase()}
+            {t("sign-in").toUpperCase()}
           </Button>
         </Stack>
         <p className="my-3 small fw-bold">
-          {t("SignIn.sign-up")}{" "}
+          {t("sign-up")}{" "}
           <a href="/sign-up" className="link-danger">
-            {t("SignIn.sign-up-link")}
+            {t("sign-up-link")}
           </a>
         </p>
       </Form>
