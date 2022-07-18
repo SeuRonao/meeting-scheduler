@@ -15,7 +15,7 @@ export default function ClientTable() {
       {loading && <LoadingSpinner />}
       {error && <Alert variant="danger">{error.message}</Alert>}
       {user && (
-        <Table striped>
+        <Table striped responsive>
           <thead>
             <tr>
               <th>{t("edit")}</th>

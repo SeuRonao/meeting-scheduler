@@ -10,7 +10,7 @@ export default function Layout() {
       <header>
         <Navigation />
       </header>
-      <Container as="main">
+      <Container as="main" fluid="lg">
         <Outlet />
       </Container>
       <footer className="fixed-bottom">
