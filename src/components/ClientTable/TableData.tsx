@@ -1,5 +1,5 @@
 import { User } from "firebase/auth";
-import { collection } from "firebase/firestore";
+import { collection, query, where } from "firebase/firestore";
 import { useState } from "react";
 import { Alert, Button } from "react-bootstrap";
 import { useCollection } from "react-firebase-hooks/firestore";
@@ -13,7 +13,10 @@ export default function TableData({ user }: { user: User }) {
   const [show, setShow] = useState(false);
   const [clientCPF, setClientCPF] = useState<string | null>(null);
   const [value, loading, error] = useCollection(
-    collection(store, "users", user.uid, "medical-records")
+    query(
+      collection(store, "users", user.uid, "medical-records"),
+      where("ownerID", "==", user.uid)
+    )
   );
 
   function handleClick(clientCPF: string) {
