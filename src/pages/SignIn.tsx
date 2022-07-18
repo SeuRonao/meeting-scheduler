@@ -1,4 +1,4 @@
-import { Image, Stack } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
 import { Navigate } from "react-router-dom";
@@ -14,15 +14,16 @@ export default function SignIn() {
   return (
     <>
       <h1 className="my-3 text-center">{t("title")}</h1>
-      <Stack direction="horizontal">
-        <Image
-          className="col-md-6 mx-auto"
-          fluid
-          src="/images/login.svg"
-          alt=""
-        />
-        <SignInForm />
-      </Stack>
+      <Container fluid>
+        <Row>
+          <Col xs={12} md={6}>
+            <Image fluid src="/images/login.svg" alt="" />
+          </Col>
+          <Col xs={12} md={6}>
+            <SignInForm />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
