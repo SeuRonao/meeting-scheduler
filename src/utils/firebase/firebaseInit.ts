@@ -7,13 +7,13 @@ import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   //cSpell:disable
-  apiKey: "AIzaSyBy7IVsd4_-RepmlUOZWyQwwh9xcqvSZ0U",
-  authDomain: "prontuario-eletronico-seuronao.firebaseapp.com",
-  projectId: "prontuario-eletronico-seuronao",
-  storageBucket: "prontuario-eletronico-seuronao.appspot.com",
-  messagingSenderId: "588029789235",
-  appId: "1:588029789235:web:798d0cb032e1a8717c8f46",
-  measurementId: "G-R3F33YQXC3",
+  apiKey: "AIzaSyDr7YGPCY5kj1Htl9k0HGpHaC0Dx5dRrmM",
+  authDomain: "meeting-scheduler-seuronao.firebaseapp.com",
+  projectId: "meeting-scheduler-seuronao",
+  storageBucket: "meeting-scheduler-seuronao.appspot.com",
+  messagingSenderId: "987382229706",
+  appId: "1:987382229706:web:037f223964a5c4f0f4a233",
+  measurementId: "G-XPTX0Q5J8W",
   //cSpell:enable
 };
 

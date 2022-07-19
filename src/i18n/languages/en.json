@@ -4,7 +4,7 @@
       "title": "Clients"
     },
     "Home": {
-      "title": "Electronic Medical Records",
+      "title": "Meeting Scheduler",
       "welcome": "Welcome"
     },
     "NotFound": {
@@ -95,7 +95,7 @@
     "Copyright": { "made-with-love": "Made with 🧡 by" },
     "LanguageSwitcher": { "available-in": "Available in" },
     "Navigation": {
-      "brand": "EMRec",
+      "brand": "MSche",
       "links": {
         "home": "Home",
         "schedule": "Schedule",
