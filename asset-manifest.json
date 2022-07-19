@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/prontuario-eletronico/static/css/main.9614f081.css",
-    "main.js": "/prontuario-eletronico/static/js/main.5ecca888.js",
-    "static/js/787.acd2f8b2.chunk.js": "/prontuario-eletronico/static/js/787.acd2f8b2.chunk.js",
-    "index.html": "/prontuario-eletronico/index.html",
-    "main.9614f081.css.map": "/prontuario-eletronico/static/css/main.9614f081.css.map",
-    "main.5ecca888.js.map": "/prontuario-eletronico/static/js/main.5ecca888.js.map",
-    "787.acd2f8b2.chunk.js.map": "/prontuario-eletronico/static/js/787.acd2f8b2.chunk.js.map"
+    "main.css": "/meeting-scheduler/static/css/main.9614f081.css",
+    "main.js": "/meeting-scheduler/static/js/main.35a465b2.js",
+    "static/js/787.ca65ba3f.chunk.js": "/meeting-scheduler/static/js/787.ca65ba3f.chunk.js",
+    "index.html": "/meeting-scheduler/index.html",
+    "main.9614f081.css.map": "/meeting-scheduler/static/css/main.9614f081.css.map",
+    "main.35a465b2.js.map": "/meeting-scheduler/static/js/main.35a465b2.js.map",
+    "787.ca65ba3f.chunk.js.map": "/meeting-scheduler/static/js/787.ca65ba3f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9614f081.css",
-    "static/js/main.5ecca888.js"
+    "static/js/main.35a465b2.js"
   ]
 }
