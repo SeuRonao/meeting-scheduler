@@ -4,7 +4,7 @@
       "title": "Clientes"
     },
     "Home": {
-      "title": "Prontuário Eletrônico",
+      "title": "Agendamentos",
       "welcome": "Bem vindo!"
     },
     "NotFound": {
@@ -95,7 +95,7 @@
     "Copyright": { "made-with-love": "Feito com 🧡 por" },
     "LanguageSwitcher": { "available-in": "Também disponível em" },
     "Navigation": {
-      "brand": "EMRec",
+      "brand": "MSche",
       "links": {
         "home": "Início",
         "schedule": "Agenda",

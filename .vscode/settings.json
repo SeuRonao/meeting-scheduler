@@ -8,6 +8,7 @@
     "Firestore",
     "languagedetector",
     "predeploy",
+    "Sche",
     "webfonts"
   ],
   "css.lint.unknownAtRules": "ignore"
