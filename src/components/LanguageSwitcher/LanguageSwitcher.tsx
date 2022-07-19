@@ -1,5 +1,6 @@
 import { Stack } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import i18n from "../../i18n/i18n";
 import languages from "../../i18n/languages/languages.json";
 
@@ -17,15 +18,15 @@ export default function LanguageSwitcher() {
           })
           .map((value, index) => {
             return (
-              <a
-                href="/"
+              <Link
+                to="/"
                 onClick={() => {
                   i18n.changeLanguage(value.code);
                 }}
                 key={index}
               >
                 {value.name}
-              </a>
+              </Link>
             );
           })}
       </div>

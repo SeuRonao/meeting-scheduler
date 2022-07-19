@@ -17,7 +17,7 @@ export default function SignIn() {
       <Container fluid>
         <Row>
           <Col xs={12} md={6}>
-            <Image fluid src="/images/login.svg" alt="" />
+            <Image fluid src="images/login.svg" alt="" />
           </Col>
           <Col xs={12} md={6}>
             <SignInForm />

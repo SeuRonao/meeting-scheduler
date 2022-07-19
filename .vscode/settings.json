@@ -7,6 +7,7 @@
     "firestore",
     "Firestore",
     "languagedetector",
+    "predeploy",
     "webfonts"
   ],
   "css.lint.unknownAtRules": "ignore"
