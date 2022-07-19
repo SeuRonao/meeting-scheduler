@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/prontuario-eletronico/static/css/main.9614f081.css",
-    "main.js": "/prontuario-eletronico/static/js/main.b0a5a73b.js",
+    "main.js": "/prontuario-eletronico/static/js/main.5ecca888.js",
     "static/js/787.acd2f8b2.chunk.js": "/prontuario-eletronico/static/js/787.acd2f8b2.chunk.js",
     "index.html": "/prontuario-eletronico/index.html",
     "main.9614f081.css.map": "/prontuario-eletronico/static/css/main.9614f081.css.map",
-    "main.b0a5a73b.js.map": "/prontuario-eletronico/static/js/main.b0a5a73b.js.map",
+    "main.5ecca888.js.map": "/prontuario-eletronico/static/js/main.5ecca888.js.map",
     "787.acd2f8b2.chunk.js.map": "/prontuario-eletronico/static/js/787.acd2f8b2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9614f081.css",
-    "static/js/main.b0a5a73b.js"
+    "static/js/main.5ecca888.js"
   ]
 }
