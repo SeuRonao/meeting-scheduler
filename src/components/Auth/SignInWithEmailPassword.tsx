@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import { Alert, Button, Form, Stack } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { auth } from "../../utils/firebase/firebaseInit";
 
 export default function SignInWithEmailPassword() {
@@ -50,9 +51,9 @@ export default function SignInWithEmailPassword() {
         </Stack>
         <p className="my-3 small fw-bold">
           {t("sign-up")}{" "}
-          <a href="/sign-up" className="link-danger">
+          <Link to="/sign-up" className="link-danger">
             {t("sign-up-link")}
-          </a>
+          </Link>
         </p>
       </Form>
     </Stack>

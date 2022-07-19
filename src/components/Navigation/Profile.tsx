@@ -2,7 +2,7 @@ import { signOut } from "firebase/auth";
 import { Alert, Button, Stack } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../utils/firebase/firebaseInit";
 import LoadingSpinner from "../common/LoadingSpinner";
 
@@ -38,8 +38,8 @@ export default function Profile() {
   }
 
   return (
-    <Button variant="outline-success" href="/sign-in">
+    <Link to="/sign-in" className="btn btn-outline-success">
       {t("sign-in")}
-    </Button>
+    </Link>
   );
 }
