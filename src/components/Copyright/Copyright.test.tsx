@@ -4,7 +4,6 @@ import Copyright from "./Copyright";
 describe("Testing Copyright", () => {
   test("renders correctly", () => {
     const component = renderer.create(<Copyright />);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(component.toJSON()).toMatchSnapshot();
   });
 });
