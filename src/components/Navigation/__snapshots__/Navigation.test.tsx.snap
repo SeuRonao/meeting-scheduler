@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Navigation renders correctly 1`] = `
+<nav
+  className="navbar navbar-expand-sm navbar-light bg-light"
+>
+  <div
+    className="container"
+  >
+    <a
+      className="navbar-brand"
+      href="/"
+      onClick={[Function]}
+    >
+      brand
+    </a>
+    <button
+      aria-controls="basic-navbar-nav"
+      aria-label="Toggle navigation"
+      className="navbar-toggler collapsed"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      aria-expanded={null}
+      className="navbar-collapse collapse"
+      id="basic-navbar-nav"
+    >
+      <div
+        className="me-auto navbar-nav"
+        onKeyDown={[Function]}
+      >
+        <a
+          className="nav-link"
+          data-rr-ui-event-key={null}
+          disabled={false}
+          href="/"
+          onClick={[Function]}
+        >
+          links.home
+        </a>
+        <a
+          className="nav-link"
+          data-rr-ui-event-key={null}
+          disabled={false}
+          href="/schedule"
+          onClick={[Function]}
+        >
+          links.schedule
+        </a>
+        <a
+          className="nav-link"
+          data-rr-ui-event-key={null}
+          disabled={false}
+          href="/clients"
+          onClick={[Function]}
+        >
+          links.clients
+        </a>
+      </div>
+      <a
+        className="btn btn-outline-success"
+        href="/sign-in"
+        onClick={[Function]}
+      >
+        sign-in
+      </a>
+    </div>
+  </div>
+</nav>
+`;

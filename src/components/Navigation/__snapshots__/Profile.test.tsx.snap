@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Profile renders correctly 1`] = `
+<a
+  className="btn btn-outline-success"
+  href="/sign-in"
+  onClick={[Function]}
+>
+  sign-in
+</a>
+`;

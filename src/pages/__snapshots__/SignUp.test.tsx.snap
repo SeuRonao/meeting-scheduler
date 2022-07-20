@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing SignUp renders correctly 1`] = `
+Array [
+  <h1
+    className="text-center my-3"
+  >
+    title
+  </h1>,
+  <section>
+    <div
+      className="hstack"
+    >
+      <img
+        alt=""
+        className="col-md-6 mx-auto img-fluid"
+        src="/images/login.svg"
+      />
+      <div
+        className="justify-content-center vstack"
+        id="enter"
+      >
+        <form
+          className=""
+          onSubmit={[Function]}
+        >
+          <div>
+            <label
+              className="form-label"
+              htmlFor="formBasicEmail"
+            >
+              email
+            </label>
+            <input
+              className="form-control"
+              id="formBasicEmail"
+              onChange={[Function]}
+              placeholder="enter-email"
+              required={true}
+              type="email"
+            />
+            <small
+              className="form-text"
+            >
+              privacy
+            </small>
+          </div>
+          <div
+            className="my-3"
+          >
+            <label
+              className="form-label"
+              htmlFor="formBasicPassword"
+            >
+              password
+            </label>
+            <input
+              className="form-control"
+              id="formBasicPassword"
+              minLength={6}
+              onChange={[Function]}
+              placeholder="password"
+              required={true}
+              type="password"
+            />
+            <div
+              className="invalid-feedback"
+            >
+              password-not-empty
+            </div>
+          </div>
+          <div
+            className="align-items-center vstack"
+          >
+            <button
+              className="btn btn-primary btn-lg"
+              disabled={false}
+              type="submit"
+            >
+              TITLE
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>,
+]
+`;

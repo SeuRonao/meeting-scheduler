@@ -26,11 +26,8 @@ const store = getFirestore(app);
 
 // If the environment is development or testing, just use the emulator.
 if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
-  console.log("Connecting to Auth Emulator on port " + 9099);
   connectAuthEmulator(auth, "http://localhost:9099");
-  console.log("Connecting to Firestore Emulator on port " + 9000);
   connectFirestoreEmulator(store, "localhost", 9000);
-  console.log("Connected to Firebase emulators...");
 }
 
 export { app, auth, store };
