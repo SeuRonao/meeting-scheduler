@@ -1,6 +1,10 @@
-import { render } from "@testing-library/react";
+import renderer from "react-test-renderer";
 import App from "./App";
 
-test("renders without throwing", () => {
-  render(<App />);
+describe("Testing the APP", () => {
+  test("renders correctly", () => {
+    const component = renderer.create(<App />);
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
