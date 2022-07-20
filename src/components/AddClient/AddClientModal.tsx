@@ -10,6 +10,10 @@ interface Props {
   setShow: (value: boolean) => void;
 }
 
+/** Modal that shows a form to create a client for the current user
+ * @param {boolean} show - A boolean representing if the modal should be shown or hidden.
+ * @param {(value: boolean) => void} setShow - a callback function that changes the value of shown.
+ */
 export default function AddClientModal(props: Props) {
   const { show, setShow } = props;
   const { t } = useTranslation("translation", {
@@ -17,8 +21,8 @@ export default function AddClientModal(props: Props) {
   });
   const [user] = useAuthState(auth);
   const [validated, setValidated] = useState<boolean | undefined>(undefined); // If undefined, the form shows no validation.
-  const [error, setError] = useState<string | null>(null);
-  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null); // Error message from the form validation.
+  const [saving, setSaving] = useState(false); // True if form is submitted and validated but not yet saved to the cloud.
 
   function getFormValues(form: HTMLFormElement) {
     const firstName = form.firstName.value as string;
