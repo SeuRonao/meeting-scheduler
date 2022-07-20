@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Clients renders correctly 1`] = `
+Array [
+  <h1
+    className="text-center my-3"
+  >
+    title
+  </h1>,
+  <button
+    className="btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    new-client-button
+  </button>,
+]
+`;
