@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing LoadingSpinner renders correctly 1`] = `
+<div
+  className="spinner-border"
+  role="status"
+>
+  <span
+    className="visually-hidden"
+  >
+    loading
+  </span>
+</div>
+`;
