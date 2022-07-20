@@ -20,11 +20,9 @@
 
 ## Overview
 
-<!-- TODO: Add a screenshot of the live project.
-    1. Link to a 'live demo.'
- -->
-
 This project main goal was to make a multi-user calendar to arrange meetings with clients.
+
+A [live demo](https://seuronao.github.io/meeting-scheduler) is available.
 
 ### Built With
 
