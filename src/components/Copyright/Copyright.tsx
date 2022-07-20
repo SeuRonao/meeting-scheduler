@@ -2,6 +2,7 @@ import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { FaGithub } from "react-icons/fa";
 
+/** Adds a copyright notice to be used in the footer of the page */
 export default function Copyright() {
   const { t } = useTranslation("translation", {
     keyPrefix: "components.Copyright",
