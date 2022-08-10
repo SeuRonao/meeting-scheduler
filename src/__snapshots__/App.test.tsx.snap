@@ -101,7 +101,7 @@ exports[`Testing the APP renders correctly 1`] = `
       className="mt-auto"
     >
       <div
-        className="justify-content-center hstack gap-2"
+        className="justify-content-center hstack gap-2 minBreakpoint-xs"
       >
         <div>
           available-in
