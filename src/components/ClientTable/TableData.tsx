@@ -33,7 +33,7 @@ export default function TableData({ user }: { user: User }) {
       />
       {loading && (
         <tr>
-          <td>
+          <td align="center" colSpan={7}>
             <LoadingSpinner />
           </td>
         </tr>
