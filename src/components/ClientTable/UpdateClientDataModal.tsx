@@ -1,4 +1,3 @@
-import { Timestamp } from "firebase/firestore";
 import { useState, useEffect, SyntheticEvent } from "react";
 import { Modal, Form, Alert, Button, Spinner } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -53,9 +52,7 @@ export default function UpdateClientModal(props: UpdateClientModalProps) {
     const cpf = form.cpf.value as string;
     const email = form.email.value as string;
     const phone = form.phone.value as string;
-    const nextAppointment = Timestamp.fromDate(
-      new Date(form.appointment.value as string)
-    );
+    const nextAppointment = form.appointment.value as string;
     return { name, cpf, email, phone, nextAppointment };
   }
 

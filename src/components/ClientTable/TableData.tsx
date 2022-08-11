@@ -25,6 +25,13 @@ export default function TableData({ user }: { user: User }) {
     setShow(true);
   }
 
+  function correctDateForTimezone(date: Date) {
+    const correctedDate = new Date(
+      date.getTime() + date.getTimezoneOffset() * 60 * 1000
+    );
+    return correctedDate;
+  }
+
   return (
     <>
       <UpdateClientModal
@@ -56,9 +63,10 @@ export default function TableData({ user }: { user: User }) {
               <td>{client.email}</td>
               <td>{client.phone}</td>
               <td>
-                {client.nextAppointment
-                  ?.toDate()
-                  .toLocaleDateString(i18next.language)}
+                {client.nextAppointment &&
+                  correctDateForTimezone(
+                    new Date(client.nextAppointment)
+                  ).toLocaleDateString(i18next.language)}
               </td>
             </tr>
           );
