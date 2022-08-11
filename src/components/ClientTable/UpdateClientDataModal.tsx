@@ -1,4 +1,4 @@
-import { useState, useEffect, SyntheticEvent } from "react";
+import { useState, useEffect, SyntheticEvent, useCallback } from "react";
 import { Modal, Form, Alert, Button, Spinner } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
@@ -27,22 +27,18 @@ export default function UpdateClientModal(props: UpdateClientModalProps) {
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
+  const fetchData = useCallback(async () => {
+    const clientData = (
+      await getClientSnapshot(user!.uid, clientCPF)
+    ).data() as Client;
+    if (clientData) setClient(clientData);
+  }, [clientCPF, user]);
+
   useEffect(() => {
-    async function fetchData() {
-      // No need to fetch data if modal is not showing
-      if (!show) return;
-
-      if (!user) throw new Error(t("no-user-provided"));
-      if (!clientCPF) throw new Error(t("no-cpf-provided"));
-
-      const clientData = (
-        await getClientSnapshot(user.uid, clientCPF)
-      ).data() as Client;
-      if (clientData) setClient(clientData);
-    }
-
+    if (!show) return; // No need to fetch data if modal is not showing
+    if (!user) throw new Error(t("no-user-provided"));
     fetchData();
-  });
+  }, [fetchData, show, t, user]);
 
   function getFormValues(form: HTMLFormElement) {
     const name = {
@@ -178,6 +174,7 @@ export default function UpdateClientModal(props: UpdateClientModalProps) {
             variant="secondary"
             onClick={() => {
               setShow(false);
+              setClient(null);
               setValidated(undefined); // Reset the validation style.
             }}
           >
