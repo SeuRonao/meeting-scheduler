@@ -1,4 +1,4 @@
-import { useState, useEffect, SyntheticEvent } from "react";
+import { useState, useEffect, SyntheticEvent, useCallback } from "react";
 import { Modal, Form, Alert, Button, Spinner } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
@@ -27,22 +27,18 @@ export default function UpdateClientModal(props: UpdateClientModalProps) {
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
+  const fetchData = useCallback(async () => {
+    const clientData = (
+      await getClientSnapshot(user!.uid, clientCPF)
+    ).data() as Client;
+    if (clientData) setClient(clientData);
+  }, [clientCPF, user]);
+
   useEffect(() => {
-    async function fetchData() {
-      // No need to fetch data if modal is not showing
-      if (!show) return;
-
-      if (!user) throw new Error(t("no-user-provided"));
-      if (!clientCPF) throw new Error(t("no-cpf-provided"));
-
-      const clientData = (
-        await getClientSnapshot(user.uid, clientCPF)
-      ).data() as Client;
-      if (clientData) setClient(clientData);
-    }
-
+    if (!show) return; // No need to fetch data if modal is not showing
+    if (!user) throw new Error(t("no-user-provided"));
     fetchData();
-  });
+  }, [fetchData, show, t, user]);
 
   function getFormValues(form: HTMLFormElement) {
     const name = {
@@ -52,8 +48,8 @@ export default function UpdateClientModal(props: UpdateClientModalProps) {
     const cpf = form.cpf.value as string;
     const email = form.email.value as string;
     const phone = form.phone.value as string;
-
-    return { name, cpf, email, phone };
+    const nextAppointment = form.appointment.value as string;
+    return { name, cpf, email, phone, nextAppointment };
   }
 
   async function handleSubmit(event: SyntheticEvent<EventTarget>) {
@@ -158,6 +154,16 @@ export default function UpdateClientModal(props: UpdateClientModalProps) {
               {t("phone-invalid")}
             </Form.Control.Feedback>
           </Form.Group>
+          <Form.Group className="my-3" controlId="appointment">
+            <Form.Label>{t("appointment")}</Form.Label>
+            <Form.Control
+              type="date"
+              defaultValue={new Date().toISOString().split("T")[0]}
+            />
+            <Form.Control.Feedback type="invalid">
+              {t("appointment-invalid")}
+            </Form.Control.Feedback>
+          </Form.Group>
         </Modal.Body>
         <Modal.Footer>
           <Button type="button" variant="danger" onClick={handleDelete}>
@@ -168,6 +174,7 @@ export default function UpdateClientModal(props: UpdateClientModalProps) {
             variant="secondary"
             onClick={() => {
               setShow(false);
+              setClient(null);
               setValidated(undefined); // Reset the validation style.
             }}
           >

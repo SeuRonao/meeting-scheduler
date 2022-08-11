@@ -11,7 +11,12 @@
       "title": "Page not found!"
     },
     "Schedule": {
-      "title": "Schedule"
+      "title": "Schedule",
+      "next-2-weeks": "Next Two Weeks",
+      "none": "None",
+      "no-appointment": "No appointment found.",
+      "call": "Phone",
+      "email": "Send Email"
     },
     "SignIn": {
       "title": "Sign in"
@@ -41,6 +46,8 @@
       "email-invalid": "Invalid email.",
       "phone": "Phone",
       "phone-invalid": "Invalid phone.",
+      "appointment": "Next Appointment",
+      "appointment-invalid": "Invalid date.",
       "close-button": "Close",
       "loading": "Loading...",
       "save-button": "Save"
@@ -84,6 +91,8 @@
       "email-invalid": "Invalid email.",
       "phone": "Phone",
       "phone-invalid": "Invalid phone.",
+      "appointment": "Next Appointment",
+      "appointment-invalid": "Invalid date.",
       "delete-button": "Delete",
       "close-button": "Close",
       "loading": "Loading...",

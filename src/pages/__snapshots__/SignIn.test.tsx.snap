@@ -26,10 +26,10 @@ Array [
         className="col-md-6 col-12"
       >
         <div
-          className="vstack"
+          className="vstack minBreakpoint-xs"
         >
           <div
-            className="justify-content-center vstack"
+            className="justify-content-center vstack minBreakpoint-xs"
             id="sign-in"
           >
             <form
@@ -76,7 +76,7 @@ Array [
                 />
               </div>
               <div
-                className="my-3 vstack"
+                className="my-3 vstack minBreakpoint-xs"
               >
                 <button
                   className="btn btn-primary btn-lg"
@@ -107,7 +107,7 @@ Array [
             OR
           </span>
           <div
-            className="my-3 align-self-center align-items-center vstack"
+            className="my-3 align-self-center align-items-center vstack minBreakpoint-xs"
           >
             <div
               disabled={false}

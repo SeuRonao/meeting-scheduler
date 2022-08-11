@@ -1,9 +1,11 @@
 import { User } from "firebase/auth";
 import { collection, query, where } from "firebase/firestore";
+import i18next from "i18next";
 import { useState } from "react";
 import { Alert, Button } from "react-bootstrap";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { MdEditNote } from "react-icons/md";
+import correctDateForTimezone from "../../utils/dateManipulation";
 import { store } from "../../utils/firebase/firebaseInit";
 import { Client } from "../../utils/types";
 import LoadingSpinner from "../common/LoadingSpinner";
@@ -33,7 +35,7 @@ export default function TableData({ user }: { user: User }) {
       />
       {loading && (
         <tr>
-          <td>
+          <td align="center" colSpan={7}>
             <LoadingSpinner />
           </td>
         </tr>
@@ -54,7 +56,12 @@ export default function TableData({ user }: { user: User }) {
               <td>{client.cpf}</td>
               <td>{client.email}</td>
               <td>{client.phone}</td>
-              <td>{client.nextAppointment?.getDate()}</td>
+              <td>
+                {client.nextAppointment &&
+                  correctDateForTimezone(
+                    new Date(client.nextAppointment)
+                  ).toLocaleDateString(i18next.language)}
+              </td>
             </tr>
           );
         })}
