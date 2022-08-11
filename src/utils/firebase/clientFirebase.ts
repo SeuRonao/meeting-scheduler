@@ -1,9 +1,41 @@
-import { deleteDoc, doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  setDoc,
+  Timestamp,
+  where,
+} from "firebase/firestore";
 import { store } from "./firebaseInit";
 import type { Client } from "../types";
 
 const USERS_COLLECTION = "users";
 const MEDICAL_RECORDS = "medical-records";
+
+async function getMedicalRecords(ownerID: string) {
+  const medicalRecRef = collection(
+    store,
+    USERS_COLLECTION,
+    ownerID,
+    MEDICAL_RECORDS
+  );
+
+  const today = new Date();
+  const todayISO = today.toISOString().split("T")[0];
+  const next2Weeks = new Date();
+  next2Weeks.setDate(today.getDate() + 14);
+  const next2WeeksISO = next2Weeks.toISOString().split("T")[0];
+  const q = query(
+    medicalRecRef,
+    where("nextAppointment", "<=", next2WeeksISO),
+    where("nextAppointment", ">=", todayISO)
+  );
+  const querySnapshot = await getDocs(q);
+  return querySnapshot;
+}
 
 async function getClientSnapshot(ownerID: string, cpf: string) {
   const clientRef = doc(store, USERS_COLLECTION, ownerID, MEDICAL_RECORDS, cpf);
@@ -49,4 +81,10 @@ async function removeClient(ownerID: string, cpf: string) {
   await deleteDoc(clientRef);
 }
 
-export { getClientSnapshot, createClient, updateClient, removeClient };
+export {
+  getClientSnapshot,
+  createClient,
+  updateClient,
+  removeClient,
+  getMedicalRecords,
+};

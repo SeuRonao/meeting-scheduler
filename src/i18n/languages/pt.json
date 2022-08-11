@@ -11,7 +11,12 @@
       "title": "Página não Encontrada!"
     },
     "Schedule": {
-      "title": "Agenda"
+      "title": "Agenda",
+      "next-2-weeks": "Próximas duas Semanas",
+      "none": "Nada",
+      "no-appointment": "Nenhum compromisso agendado.",
+      "call": "Telefonar",
+      "email": "Enviar Email"
     },
     "SignIn": {
       "title": "Entrar"

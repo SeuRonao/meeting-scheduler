@@ -11,7 +11,12 @@
       "title": "Page not found!"
     },
     "Schedule": {
-      "title": "Schedule"
+      "title": "Schedule",
+      "next-2-weeks": "Next Two Weeks",
+      "none": "None",
+      "no-appointment": "No appointment found.",
+      "call": "Phone",
+      "email": "Send Email"
     },
     "SignIn": {
       "title": "Sign in"
