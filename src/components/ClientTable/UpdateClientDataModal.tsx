@@ -1,3 +1,4 @@
+import { Timestamp } from "firebase/firestore";
 import { useState, useEffect, SyntheticEvent } from "react";
 import { Modal, Form, Alert, Button, Spinner } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -52,8 +53,10 @@ export default function UpdateClientModal(props: UpdateClientModalProps) {
     const cpf = form.cpf.value as string;
     const email = form.email.value as string;
     const phone = form.phone.value as string;
-
-    return { name, cpf, email, phone };
+    const nextAppointment = Timestamp.fromDate(
+      new Date(form.appointment.value as string)
+    );
+    return { name, cpf, email, phone, nextAppointment };
   }
 
   async function handleSubmit(event: SyntheticEvent<EventTarget>) {
@@ -156,6 +159,16 @@ export default function UpdateClientModal(props: UpdateClientModalProps) {
             <Form.Control type="tel" defaultValue={client?.phone} />
             <Form.Control.Feedback type="invalid">
               {t("phone-invalid")}
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group className="my-3" controlId="appointment">
+            <Form.Label>{t("appointment")}</Form.Label>
+            <Form.Control
+              type="date"
+              defaultValue={new Date().toISOString().split("T")[0]}
+            />
+            <Form.Control.Feedback type="invalid">
+              {t("appointment-invalid")}
             </Form.Control.Feedback>
           </Form.Group>
         </Modal.Body>

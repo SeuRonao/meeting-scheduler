@@ -41,6 +41,8 @@
       "email-invalid": "Invalid email.",
       "phone": "Phone",
       "phone-invalid": "Invalid phone.",
+      "appointment": "Next Appointment",
+      "appointment-invalid": "Invalid date.",
       "close-button": "Close",
       "loading": "Loading...",
       "save-button": "Save"
@@ -84,6 +86,8 @@
       "email-invalid": "Invalid email.",
       "phone": "Phone",
       "phone-invalid": "Invalid phone.",
+      "appointment": "Next Appointment",
+      "appointment-invalid": "Invalid date.",
       "delete-button": "Delete",
       "close-button": "Close",
       "loading": "Loading...",

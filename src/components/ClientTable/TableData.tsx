@@ -1,5 +1,6 @@
 import { User } from "firebase/auth";
 import { collection, query, where } from "firebase/firestore";
+import i18next from "i18next";
 import { useState } from "react";
 import { Alert, Button } from "react-bootstrap";
 import { useCollection } from "react-firebase-hooks/firestore";
@@ -54,7 +55,11 @@ export default function TableData({ user }: { user: User }) {
               <td>{client.cpf}</td>
               <td>{client.email}</td>
               <td>{client.phone}</td>
-              <td>{client.nextAppointment?.getDate()}</td>
+              <td>
+                {client.nextAppointment
+                  ?.toDate()
+                  .toLocaleDateString(i18next.language)}
+              </td>
             </tr>
           );
         })}
