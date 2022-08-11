@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Alert, Button } from "react-bootstrap";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { MdEditNote } from "react-icons/md";
+import correctDateForTimezone from "../../utils/dateManipulation";
 import { store } from "../../utils/firebase/firebaseInit";
 import { Client } from "../../utils/types";
 import LoadingSpinner from "../common/LoadingSpinner";
@@ -23,13 +24,6 @@ export default function TableData({ user }: { user: User }) {
   function handleClick(clientCPF: string) {
     setClientCPF(clientCPF);
     setShow(true);
-  }
-
-  function correctDateForTimezone(date: Date) {
-    const correctedDate = new Date(
-      date.getTime() + date.getTimezoneOffset() * 60 * 1000
-    );
-    return correctedDate;
   }
 
   return (
