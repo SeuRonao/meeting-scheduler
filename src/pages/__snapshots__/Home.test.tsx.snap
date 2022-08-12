@@ -20,6 +20,38 @@ Array [
     use
   </h2>,
   "use-array",
+  <h3>
+    login-image
+  </h3>,
+  <img
+    alt="login-image"
+    className="border rounded border-secondary img-fluid"
+    src="images/landing-pagelogin.webp"
+  />,
+  <h3>
+    add-update-remove-image
+  </h3>,
+  <img
+    alt="add-update-remove-image"
+    className="border rounded border-secondary img-fluid"
+    src="images/landing-pageadd-update-remove.webp"
+  />,
+  <h3>
+    see-schedule-image
+  </h3>,
+  <img
+    alt="see-schedule-image"
+    className="border rounded border-secondary img-fluid"
+    src="images/landing-pagesee-schedule.webp"
+  />,
+  <h3>
+    internationalization-image
+  </h3>,
+  <img
+    alt="internationalization-image"
+    className="border rounded border-secondary img-fluid"
+    src="images/landing-pageinternationalization.webp"
+  />,
   <h2
     className="my-3"
   >

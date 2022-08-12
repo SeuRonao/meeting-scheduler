@@ -5,6 +5,11 @@ import { Navigate } from "react-router-dom";
 import SignInForm from "../components/Auth/SignIn";
 import { auth } from "../utils/firebase/firebaseInit";
 
+const imageFolder =
+  process.env.NODE_ENV === "development"
+    ? "meeting-scheduler/images/"
+    : "images/";
+
 export default function SignIn() {
   const { t } = useTranslation("translation", { keyPrefix: "pages.SignIn" });
   const [user] = useAuthState(auth);
@@ -17,7 +22,7 @@ export default function SignIn() {
       <Container fluid>
         <Row>
           <Col xs={12} md={6}>
-            <Image fluid src="images/login.svg" alt="" />
+            <Image fluid src={imageFolder + "login.svg"} alt="" />
           </Col>
           <Col xs={12} md={6}>
             <SignInForm />

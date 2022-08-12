@@ -20,6 +20,10 @@
       "use-array": [
         "As principais funcionalidades aparecem nos vídeos abaixo."
       ],
+      "login-image": "Animação Mostrando Login.",
+      "add-update-remove-image": "Animação mostrando CRUD de clientes.",
+      "see-schedule-image": "Animação mostrando como ver a agenda.",
+      "internationalization-image": "Animação mostrando como mudar o idioma.",
       "challenges": "Principais Desafios",
       "challenges-array": [
         "Os desafios mais importantes que eu encontrei ao desenvolver esse aplicativo podem ser encontrados abaixo:"
