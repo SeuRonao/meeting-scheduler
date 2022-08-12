@@ -41,6 +41,7 @@ export default function SignInWithEmailPassword() {
           <Form.Control
             type="password"
             placeholder={t("password")}
+            autoComplete="current-password"
             onChange={(e: any) => setPassword(e.target.value)}
           />
         </Form.Group>
