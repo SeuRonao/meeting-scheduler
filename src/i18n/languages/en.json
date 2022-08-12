@@ -18,10 +18,10 @@
       ],
       "use": "How to Use the App",
       "use-array": ["The main features can be seen in the following videos."],
-      "login-image": "Animation showing how to Login to the website.",
-      "add-update-remove-image": "Animation showing how to add, update or remove client from the website.",
-      "see-schedule-image": "Animation showing how to the upcoming two week schedule.",
-      "internationalization-image": "Animation showing change languages.",
+      "login-image": "Animation showing login functionality.",
+      "add-update-remove-image": "Animation showing how to add, update or remove a client.",
+      "see-schedule-image": "Animation showing the upcoming two week schedule.",
+      "internationalization-image": "Animation showing language change.",
       "challenges": "Main Challenges",
       "challenges-array": [
         "I faced some challenges while building this app, the more relevant ones are described below:"
