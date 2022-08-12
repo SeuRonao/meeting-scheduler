@@ -44,6 +44,7 @@ exports[`Testing SignIn renders correctly 1`] = `
           password
         </label>
         <input
+          autoComplete="current-password"
           className="form-control"
           id="formBasicPassword"
           onChange={[Function]}
