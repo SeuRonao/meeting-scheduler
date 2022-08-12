@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 const imageFolder =
   process.env.NODE_ENV === "development"
     ? "meeting-scheduler/images/landing-page/"
-    : "images/landing-page";
+    : "images/landing-page/";
 
 export default function Home() {
   const { t } = useTranslation("translation", { keyPrefix: "pages.Home" });

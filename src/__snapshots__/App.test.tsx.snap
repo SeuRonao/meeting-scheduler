@@ -115,7 +115,7 @@ exports[`Testing the APP renders correctly 1`] = `
       <img
         alt="login-image"
         className="border rounded border-secondary img-fluid"
-        src="images/landing-pagelogin.webp"
+        src="images/landing-page/login.webp"
       />
       <h3>
         add-update-remove-image
@@ -123,7 +123,7 @@ exports[`Testing the APP renders correctly 1`] = `
       <img
         alt="add-update-remove-image"
         className="border rounded border-secondary img-fluid"
-        src="images/landing-pageadd-update-remove.webp"
+        src="images/landing-page/add-update-remove.webp"
       />
       <h3>
         see-schedule-image
@@ -131,7 +131,7 @@ exports[`Testing the APP renders correctly 1`] = `
       <img
         alt="see-schedule-image"
         className="border rounded border-secondary img-fluid"
-        src="images/landing-pagesee-schedule.webp"
+        src="images/landing-page/see-schedule.webp"
       />
       <h3>
         internationalization-image
@@ -139,7 +139,7 @@ exports[`Testing the APP renders correctly 1`] = `
       <img
         alt="internationalization-image"
         className="border rounded border-secondary img-fluid"
-        src="images/landing-pageinternationalization.webp"
+        src="images/landing-page/internationalization.webp"
       />
       <h2
         className="my-3"
