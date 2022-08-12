@@ -16,7 +16,8 @@
       "none": "None",
       "no-appointment": "No appointment found.",
       "call": "Phone",
-      "email": "Send Email"
+      "email": "Send Email",
+      "remove": "Remove"
     },
     "SignIn": {
       "title": "Sign in"

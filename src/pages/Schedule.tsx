@@ -1,13 +1,16 @@
 import { DocumentData, QuerySnapshot } from "firebase/firestore";
 import i18next from "i18next";
 import { useCallback, useEffect, useState } from "react";
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Card, Container, Stack } from "react-bootstrap";
 import { Alert } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
 import { LoadingSpinner } from "../components/common";
 import correctDateForTimezone from "../utils/dateManipulation";
-import { getMedicalRecords } from "../utils/firebase/clientFirebase";
+import {
+  getMedicalRecords,
+  removeAppointment,
+} from "../utils/firebase/clientFirebase";
 import { auth } from "../utils/firebase/firebaseInit";
 import { Client } from "../utils/types";
 
@@ -30,7 +33,7 @@ export default function Schedule() {
     setLoadingValues(true);
     fetchData();
     setLoadingValues(false);
-  }, [fetchData]);
+  }, [fetchData, records]);
 
   return (
     <>
@@ -43,35 +46,47 @@ export default function Schedule() {
           {records && records.docs === null && <p>{t("none")}</p>}
           {records && records.docs && (
             <Container>
-              {records.docs.map((value, index) => {
-                const client = value.data() as Client;
-                return (
-                  <Card key={index}>
-                    <Card.Body>
-                      <Card.Title>
-                        {client.name.first + " " + client.name.last}
-                      </Card.Title>
-                      <Card.Text>
-                        {client.nextAppointment
-                          ? correctDateForTimezone(
-                              new Date(client.nextAppointment)
-                            ).toLocaleDateString(i18next.language)
-                          : t("no-appointment")}{" "}
-                        {client.phone && (
-                          <Button href={"tel:" + client.phone}>
-                            {t("call")}
-                          </Button>
-                        )}{" "}
-                        {client.email && (
-                          <Button href={"mailto:" + client.email}>
-                            {t("email")}
-                          </Button>
-                        )}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                );
-              })}
+              <Stack gap={3}>
+                {records.docs.map((value, index) => {
+                  const client = value.data() as Client;
+                  return (
+                    <Card key={index}>
+                      <Card.Body>
+                        <Card.Title>
+                          {client.name.first + " " + client.name.last}
+                        </Card.Title>
+                        <Card.Text>
+                          <Stack direction="horizontal" gap={2}>
+                            {client.nextAppointment
+                              ? correctDateForTimezone(
+                                  new Date(client.nextAppointment)
+                                ).toLocaleDateString(i18next.language)
+                              : t("no-appointment")}
+                            <Button
+                              variant="danger"
+                              onClick={() => {
+                                removeAppointment(user.uid, client.cpf);
+                              }}
+                            >
+                              {t("remove")}
+                            </Button>
+                            {client.phone && (
+                              <Button href={"tel:" + client.phone}>
+                                {t("call")}
+                              </Button>
+                            )}{" "}
+                            {client.email && (
+                              <Button href={"mailto:" + client.email}>
+                                {t("email")}
+                              </Button>
+                            )}
+                          </Stack>
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  );
+                })}
+              </Stack>
             </Container>
           )}
         </>

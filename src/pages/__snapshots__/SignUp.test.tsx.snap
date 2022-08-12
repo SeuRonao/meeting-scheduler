@@ -9,7 +9,7 @@ Array [
   </h1>,
   <section>
     <div
-      className="hstack minBreakpoint-xs"
+      className="hstack"
     >
       <img
         alt=""
@@ -17,7 +17,7 @@ Array [
         src="/images/login.svg"
       />
       <div
-        className="justify-content-center vstack minBreakpoint-xs"
+        className="justify-content-center vstack"
         id="enter"
       >
         <form
@@ -70,7 +70,7 @@ Array [
             </div>
           </div>
           <div
-            className="align-items-center vstack minBreakpoint-xs"
+            className="align-items-center vstack"
           >
             <button
               className="btn btn-primary btn-lg"

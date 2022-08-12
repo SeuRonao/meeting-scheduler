@@ -16,7 +16,8 @@
       "none": "Nada",
       "no-appointment": "Nenhum compromisso agendado.",
       "call": "Telefonar",
-      "email": "Enviar Email"
+      "email": "Enviar Email",
+      "remove": "Remover"
     },
     "SignIn": {
       "title": "Entrar"
