@@ -96,12 +96,53 @@ exports[`Testing the APP renders correctly 1`] = `
       >
         title
       </h1>
+      intro-array
+      <h2
+        className="my-3"
+      >
+        motivation
+      </h2>
+      motivation-array
+      <h2
+        className="my-3"
+      >
+        use
+      </h2>
+      use-array
+      <h2
+        className="my-3"
+      >
+        challenges
+      </h2>
+      challenges-array
+      <ul>
+        <li>
+          challenges-bullet-array
+        </li>
+        <li>
+          challenges-bullet-array
+        </li>
+      </ul>
+      <h2
+        className="my-3"
+      >
+        learning
+      </h2>
+      learning-array
+      <ul>
+        <li>
+          learning-bullet-array
+        </li>
+        <li>
+          learning-bullet-array
+        </li>
+      </ul>
     </main>
     <footer
       className="mt-auto"
     >
       <div
-        className="justify-content-center hstack gap-2"
+        className="justify-content-center hstack gap-2 minBreakpoint-xs"
       >
         <div>
           available-in

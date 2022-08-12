@@ -5,7 +5,39 @@
     },
     "Home": {
       "title": "Meeting Scheduler",
-      "welcome": "Welcome"
+      "welcome": "Welcome",
+      "intro-array": [
+        "This is a demonstration project of a meeting scheduler.",
+        "The frontend is hosted in GitHub Pages, while the backend is done using Firebase."
+      ],
+      "motivation": "Motivation",
+      "motivation-array": [
+        "I wanted to learn Web Development in order to open new doors for career progress/change.",
+        "I wanted to do a project based on and idea without completely following a tutorial.",
+        "While, obviously, reading documentation and following some tutorial for some of the features that I was unfamiliar with."
+      ],
+      "use": "How to Use the App",
+      "use-array": ["The main features can be seen in the following videos."],
+      "challenges": "Main Challenges",
+      "challenges-array": [
+        "I faced some challenges while building this app, the more relevant ones are described below:"
+      ],
+      "challenges-bullet-array": [
+        "How to organize the project in such a way that folder structure would make sense.",
+        "The importance of writing tests beforehand or at least concurrently with the development of features.",
+        "By using the most recent version of react/firebase and on top of it with Typescript, made almost every other tool/documentation either obsolete or simply incorrect for this app.",
+        "At a first glance I tried to add a lot of features simultaneously, which is not a good approach."
+      ],
+      "learning": "Important Lessons",
+      "learning-array": ["I've learned through this little project:"],
+      "learning-bullet-array": [
+        "How to use react hooks without triggering infinite loops.",
+        "How to work with authentication/authorization.",
+        "How to work with a backend as a service such as Firebase.",
+        "How to deploy the frontend automatically using GitHub and GitHub actions.",
+        "How to use Bootstrap for a consistent look and feel.",
+        "How writing tests beforehand or concurrently avoids lack of motivation to write them to code that is 'already working'."
+      ]
     },
     "NotFound": {
       "title": "Page not found!"

@@ -5,7 +5,43 @@
     },
     "Home": {
       "title": "Agendamentos",
-      "welcome": "Bem vindo!"
+      "welcome": "Bem vindo!",
+      "intro-array": [
+        "Esse é um projeto para demonstrar o funcionamento de um agendamento de encontros.",
+        "O frontend está hospedado usando o GitHub Pages e o backend usando o serviço do Firebase."
+      ],
+      "motivation": "Motivação",
+      "motivation-array": [
+        "Eu desejei aprender Desenvolvimento Web para tentar abrir novas portas para crescimento profissional.",
+        "Esse projeto foi uma tentativa de criar algo baseado em uma ideia sem seguir um tutorial que explicasse passo a passo.",
+        "Obviamente, foi necessária a leitura de documentação e seguir alguns tutoriais para funcionalidades específicas."
+      ],
+      "use": "Como usar o Aplicativo",
+      "use-array": [
+        "As principais funcionalidades aparecem nos vídeos abaixo."
+      ],
+      "challenges": "Principais Desafios",
+      "challenges-array": [
+        "Os desafios mais importantes que eu encontrei ao desenvolver esse aplicativo podem ser encontrados abaixo:"
+      ],
+      "challenges-bullet-array": [
+        "Como organizar o projeto de forma que a estrutura de diretórios faça sentido.",
+        "A importância de escrever testes automatizados ou durante o desenvolvimento das funcionalidades.",
+        "Utilizar a versão mais recente de Typescript, React e Firebase, fez com que quase todo tutorial e ferramenta ficasse obsoleta ou simplesmente não funcionasse nativamente com esse aplicativo.",
+        "Inicialmente, eu tentei desenvolver várias funcionalidades simultaneamente , o que não foi uma boa ideia."
+      ],
+      "learning": "Lições Aprendidas",
+      "learning-array": [
+        "O que eu considero como principal aprendizado relativo a esse projeto pode ser visto abaixo."
+      ],
+      "learning-bullet-array": [
+        "Como usar ganchos do react de forma eficiente ao aprender como funciona o ciclo de vida dos componentes.",
+        "Como trabalhar com autorização/autenticação.",
+        "Como trabalhar com um backend no estilo do Firebase.",
+        "Como implantar o frontend automaticamente utilizando GitHub Actions.",
+        "Como utilizar um framework de CSS (Bootstrap) para ter uma interface consistente.",
+        "A importância de se escrever os testes antes/durante a implementação de funcionalidades para evitar a falta de motivação para fazê-lo após o código estar 'funcionando'."
+      ]
     },
     "NotFound": {
       "title": "Página não Encontrada!"

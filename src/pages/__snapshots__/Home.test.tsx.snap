@@ -1,9 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing Profile renders correctly 1`] = `
-<h1
-  className="text-center my-3"
->
-  title
-</h1>
+Array [
+  <h1
+    className="text-center my-3"
+  >
+    title
+  </h1>,
+  "intro-array",
+  <h2
+    className="my-3"
+  >
+    motivation
+  </h2>,
+  "motivation-array",
+  <h2
+    className="my-3"
+  >
+    use
+  </h2>,
+  "use-array",
+  <h2
+    className="my-3"
+  >
+    challenges
+  </h2>,
+  "challenges-array",
+  <ul>
+    <li>
+      challenges-bullet-array
+    </li>
+    <li>
+      challenges-bullet-array
+    </li>
+  </ul>,
+  <h2
+    className="my-3"
+  >
+    learning
+  </h2>,
+  "learning-array",
+  <ul>
+    <li>
+      learning-bullet-array
+    </li>
+    <li>
+      learning-bullet-array
+    </li>
+  </ul>,
+]
 `;
