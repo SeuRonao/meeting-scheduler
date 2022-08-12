@@ -1,12 +1,14 @@
 import {
   collection,
   deleteDoc,
+  deleteField,
   doc,
   getDoc,
   getDocs,
   query,
   setDoc,
   Timestamp,
+  updateDoc,
   where,
 } from "firebase/firestore";
 import { store } from "./firebaseInit";
@@ -81,10 +83,16 @@ async function removeClient(ownerID: string, cpf: string) {
   await deleteDoc(clientRef);
 }
 
+async function removeAppointment(ownerID: string, cpf: string) {
+  const clientRef = doc(store, USERS_COLLECTION, ownerID, MEDICAL_RECORDS, cpf);
+  await updateDoc(clientRef, { nextAppointment: deleteField() });
+}
+
 export {
   getClientSnapshot,
   createClient,
   updateClient,
   removeClient,
   getMedicalRecords,
+  removeAppointment,
 };

@@ -2,10 +2,10 @@
 
 exports[`Testing SignIn renders correctly 1`] = `
 <div
-  className="vstack minBreakpoint-xs"
+  className="vstack"
 >
   <div
-    className="justify-content-center vstack minBreakpoint-xs"
+    className="justify-content-center vstack"
     id="sign-in"
   >
     <form
@@ -52,7 +52,7 @@ exports[`Testing SignIn renders correctly 1`] = `
         />
       </div>
       <div
-        className="my-3 vstack minBreakpoint-xs"
+        className="my-3 vstack"
       >
         <button
           className="btn btn-primary btn-lg"
@@ -83,7 +83,7 @@ exports[`Testing SignIn renders correctly 1`] = `
     OR
   </span>
   <div
-    className="my-3 align-self-center align-items-center vstack minBreakpoint-xs"
+    className="my-3 align-self-center align-items-center vstack"
   >
     <div
       disabled={false}
